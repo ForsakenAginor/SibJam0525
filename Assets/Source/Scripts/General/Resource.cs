@@ -19,6 +19,7 @@ public class Resource : IResource
 
     public event Action ResourcesAmountChanged;
     public event Action ResourceOver;
+    public event Action ResourceFulfill;
 
     public int Amount => _amount;
 
@@ -30,7 +31,17 @@ public class Resource : IResource
             throw new ArgumentOutOfRangeException(nameof(amount));
 
         int temp = _amount + amount;
-        _amount = _maximum <= temp ? _maximum : temp;
+
+        if(_maximum <= temp)
+        {
+            _amount = _maximum;
+            ResourceFulfill?.Invoke();
+        }
+        else
+        {
+            _amount = temp;
+        }
+
         ResourcesAmountChanged?.Invoke();
     }
 
