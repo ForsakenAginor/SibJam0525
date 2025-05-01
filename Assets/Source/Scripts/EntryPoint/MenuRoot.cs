@@ -8,9 +8,11 @@ public class MenuRoot : MonoBehaviour
 
     private void Start()
     {
-        SceneChangerSingleton.Instance.FadeOut();
-
+        Time.timeScale = 0f;
         _playButton.onClick.AddListener(OnPlayButtonClick);
+
+        Time.timeScale = 1f;
+        SceneChangerSingleton.Instance.FadeOut();
     }
 
     private void OnDestroy()

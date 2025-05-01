@@ -1,13 +1,16 @@
 using Assets.Scripts.General;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameRoot : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] private Button _exitButton;
+    [SerializeField] private Button[] _exitButtons;
     [SerializeField] private Button _restartButton;
     [SerializeField] private SwitchableElement _loseScreen;
+    [SerializeField] private SwitchableElement _winScreen;
+    [SerializeField] private SwitchableElement _buttonCanvas;
 
     [Header("Bars")]
     [SerializeField] private ResourceView _playerHealthBar;
@@ -19,27 +22,50 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private int _maxStamina;
     [SerializeField] private int _maxMoney;
 
+    [Header("Loot")]
+    [SerializeField] private List<Pickapable> _loot;
+
+    [Header("lifeCycle")]
+    [SerializeField] private GameLifeCycle _lifeCycle;
+
     private Resource _playerHealth;
     private Resource _money;
 
     private void Start()
     {
+        Time.timeScale = 0f;
+
         _playerHealth = new Resource(_maxHealth);
         Resource stamina = new Resource(_maxStamina);
         _money = new Resource(0, _maxMoney);
         InitPlayerResourceViews(stamina);
+        Wallet wallet = new Wallet(_loot, _money);
+        _lifeCycle.Init(_money);
 
-        _exitButton.onClick.AddListener(OnPlayButtonClick);
-        _restartButton.onClick.AddListener(OnRestartButtonClick);
-        _playerHealth.ResourceOver += OnPlayerDying;
+        Subscribe();
+        Time.timeScale = 1f;
         SceneChangerSingleton.Instance.FadeOut();
     }
 
+
     private void OnDestroy()
     {
+        _lifeCycle.PlayerWon -= OnPlayerWon;
         _playerHealth.ResourceOver -= OnPlayerDying;
         _restartButton.onClick.RemoveListener(OnRestartButtonClick);
-        _exitButton.onClick.RemoveListener(OnPlayButtonClick);
+
+        foreach (var button in _exitButtons)
+            button.onClick.RemoveListener(OnPlayButtonClick);
+    }
+
+    private void Subscribe()
+    {
+        _lifeCycle.PlayerWon += OnPlayerWon;
+        _restartButton.onClick.AddListener(OnRestartButtonClick);
+        _playerHealth.ResourceOver += OnPlayerDying;
+
+        foreach (var button in _exitButtons)
+            button.onClick.AddListener(OnPlayButtonClick);
     }
 
     private void OnRestartButtonClick()
@@ -47,8 +73,17 @@ public class GameRoot : MonoBehaviour
         SceneChangerSingleton.Instance.LoadScene(Scenes.Game.ToString());
     }
 
+    private void OnPlayerWon()
+    {
+        Time.timeScale = 0f;
+        _buttonCanvas.Disable();
+        _winScreen.Enable();
+    }
+
     private void OnPlayerDying()
     {
+        Time.timeScale = 0f;
+        _buttonCanvas.Disable();
         _loseScreen.Enable();
     }
 
