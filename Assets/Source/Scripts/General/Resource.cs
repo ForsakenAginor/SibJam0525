@@ -46,11 +46,3 @@ public class Resource : IResource
             ResourceOver?.Invoke();
     }
 }
-  
-
-
-
-
-
-
-
