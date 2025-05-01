@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class GameRoot : MonoBehaviour
 {
-
     [Header("UI")]
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _restartButton;
