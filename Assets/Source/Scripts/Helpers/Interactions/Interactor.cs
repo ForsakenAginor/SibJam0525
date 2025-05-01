@@ -38,20 +38,24 @@ public class Interactor : MonoBehaviour, IInteractor
             Debug.DrawLine(viever.transform.position, f.point, Color.red);
            
             IFocusable c = f.collider.GetComponentInParent<IFocusable>();
-            if(currentFocus!=c && currentFocus != null)
+            if (currentFocus != c)
             {
-                currentFocus.Unfocus(this);                
-            }
-            currentFocus = c;
-            if (currentFocus != null)
-            {
-                currentFocus.Focus(this);
+                if (currentFocus != null)
+                {
+                    currentFocus.Unfocus(this);
+                }
+                currentFocus = c;
+                if (currentFocus != null)
+                {
+                    currentFocus.Focus(this);
+                }
             }
         }
         else if (currentFocus != null)
         {
            
             currentFocus.Unfocus(this);
+            currentFocus = null;
         }
     }
 
