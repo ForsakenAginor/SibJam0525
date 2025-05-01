@@ -42,7 +42,7 @@ public class GameRoot : MonoBehaviour
         InitPlayerResourceViews(stamina);
         Wallet wallet = new Wallet(_loot, _money);
         _lifeCycle.Init(_money);
-        _playerInitializer.Init(stamina);
+        _playerInitializer.Init(stamina, _playerHealth);
 
         Subscribe();
         Time.timeScale = 1f;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using NSpace;
 using System;
@@ -93,7 +91,6 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         {
             onMove?.Invoke(move.magnitude / moveSpeed);
         }
-
     }
 
     public void Init(SprintController sprintController)
@@ -102,7 +99,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         controller = GetComponent<CharacterController>();
         input = GetComponentInParent<ControllInput>().controlls;
         InitControlls();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         viewAngle = 0;
         defaultHeight = controller.height;
     }
