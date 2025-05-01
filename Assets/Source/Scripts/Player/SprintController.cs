@@ -43,5 +43,4 @@ public class SprintController : MonoBehaviour
         _stamina = stamina;
         _sprinter = sprinter;
     }
-
 }
