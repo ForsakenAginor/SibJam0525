@@ -1,4 +1,5 @@
 using Assets.Scripts.General;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,9 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private int _maxStamina;
     [SerializeField] private int _maxMoney;
 
+    [Header("Loot")]
+    [SerializeField] private List<Pickapable> _loot;
+
     private Resource _playerHealth;
     private Resource _money;
 
@@ -28,6 +32,7 @@ public class GameRoot : MonoBehaviour
         Resource stamina = new Resource(_maxStamina);
         _money = new Resource(0, _maxMoney);
         InitPlayerResourceViews(stamina);
+        Wallet wallet = new Wallet(_loot, _money);
 
         _exitButton.onClick.AddListener(OnPlayButtonClick);
         _restartButton.onClick.AddListener(OnRestartButtonClick);
