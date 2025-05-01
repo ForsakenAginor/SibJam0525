@@ -11,6 +11,7 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private SwitchableElement _loseScreen;
     [SerializeField] private SwitchableElement _winScreen;
     [SerializeField] private SwitchableElement _buttonCanvas;
+    [SerializeField] private PickapableOverlay _overlay;
 
     [Header("Bars")]
     [SerializeField] private ResourceView _playerHealthBar;
@@ -43,6 +44,9 @@ public class GameRoot : MonoBehaviour
         Wallet wallet = new Wallet(_loot, _money);
         _lifeCycle.Init(_money);
         _playerInitializer.Init(stamina, _playerHealth);
+
+        foreach (var item in _loot)
+            item.Init(_overlay);
 
         Subscribe();
         Time.timeScale = 1f;
