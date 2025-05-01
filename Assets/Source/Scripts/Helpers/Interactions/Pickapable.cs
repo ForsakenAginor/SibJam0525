@@ -5,17 +5,30 @@ using System;
 public class Pickapable : InteractableBase
 {
     [SerializeField] private int _value;
+    private PickapableOverlay _pickapableOverlay;
 
     public event Action<Pickapable> Pickuped;
 
     public int Value => _value;
 
+    public void Init(PickapableOverlay overlay)
+    {
+        SetOverlay(overlay);
+        _pickapableOverlay = overlay;
+    }
+
     public override void Interact(IInteractor _, bool pressed)
     {
-        if(pressed)
+        if (pressed)
         {
             Pickuped?.Invoke(this);
             Destroy(gameObject);
         }
+    }
+
+    public override void Focus(IInteractor actor)
+    {
+        base.Focus(actor);
+        _pickapableOverlay.SetText(_value);
     }
 }
