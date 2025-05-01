@@ -12,11 +12,3 @@ public class SwitchableElement : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
-  
-
-
-
-
-
-
-
