@@ -54,6 +54,9 @@ public class Resource : IResource
         ResourcesAmountChanged?.Invoke();
 
         if (_amount <= 0)
+        {
+            _amount = 0;
             ResourceOver?.Invoke();
+        }
     }
 }

@@ -17,10 +17,11 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private ResourceView _playerStaminaBar;
     [SerializeField] private ResourceView _playerMoneyBar;
 
-    [Header("Player stats")]
+    [Header("Player")]
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _maxStamina;
     [SerializeField] private int _maxMoney;
+    [SerializeField] private PlayerInitializer _playerInitializer;
 
     [Header("Loot")]
     [SerializeField] private List<Pickapable> _loot;
@@ -41,6 +42,7 @@ public class GameRoot : MonoBehaviour
         InitPlayerResourceViews(stamina);
         Wallet wallet = new Wallet(_loot, _money);
         _lifeCycle.Init(_money);
+        _playerInitializer.Init(stamina);
 
         Subscribe();
         Time.timeScale = 1f;

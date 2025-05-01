@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NSpace;
+using System;
+
+public interface ISprinter
+{
+    bool IsSprinting { get; }
+}
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerControll : MonoBehaviour, IEntity
+public class PlayerControll : MonoBehaviour, IEntity, ISprinter
 {
     [SerializeField] float moveSpeed;
     [SerializeField] float lookSpeed;
@@ -29,7 +35,10 @@ public class PlayerControll : MonoBehaviour, IEntity
     bool crouch;
     bool sprint;
     float defaultHeight;
-    
+    private SprintController _sprintController;
+
+    public bool IsSprinting => sprint;
+
     void InitControlls()
     {
         input.CharacterControlls.Move.started += (context) => { Vector2 inputVector = context.ReadValue<Vector2>(); moveDemand.x = inputVector.x; moveDemand.z = inputVector.y; };
@@ -45,23 +54,6 @@ public class PlayerControll : MonoBehaviour, IEntity
         input.CharacterControlls.Sprint.started += (context) => { sprint = true; };
         input.CharacterControlls.Sprint.canceled += (context) => { sprint = false; };
     }
-    
-    
-    
-    
-    
-    void Start()
-    {
-        controller = GetComponent<CharacterController>();
-        input = GetComponentInParent<ControllInput>().controlls;
-        InitControlls();
-        Cursor.lockState = CursorLockMode.Locked;
-        viewAngle = 0;
-        defaultHeight = controller.height;
-    }
-
-    
-
 
     // Update is called once per frame
     void Update()
@@ -78,28 +70,40 @@ public class PlayerControll : MonoBehaviour, IEntity
             move = Vector3.Lerp(move, (Vector3.ClampMagnitude(transform.TransformDirection(moveDemand).With(y: 0), 1))
             * moveSpeed
             * (crouch ? crouchSpeedMult : 1)
-            * (sprint ? sprintSpeedMult : 1), Time.deltaTime * 5);
+            * (sprint && _sprintController.CanSprint ? sprintSpeedMult : 1), Time.deltaTime * 5);
         }
-        controller.Move((move+Vector3.up*moveDemand.y)*Time.deltaTime);
+        controller.Move((move + Vector3.up * moveDemand.y) * Time.deltaTime);
         controller.transform.rotation *= Quaternion.AngleAxis(lookDemand.x * lookSpeed * Time.deltaTime, Vector3.up);
-        viewAngle = Mathf.Clamp(viewAngle - lookDemand.y * lookSpeed*Time.deltaTime, viewLimits.x, viewLimits.y); ;
+        viewAngle = Mathf.Clamp(viewAngle - lookDemand.y * lookSpeed * Time.deltaTime, viewLimits.x, viewLimits.y); ;
         viewer.transform.localRotation = Quaternion.AngleAxis(viewAngle, Vector3.right);
         if (crouch)
         {
-            controller.height = Mathf.Lerp(controller.height, defaultHeight *crouchMult, Time.deltaTime*10);
+            controller.height = Mathf.Lerp(controller.height, defaultHeight * crouchMult, Time.deltaTime * 10);
 
         }
-        else controller.height = Mathf.Lerp(controller.height, defaultHeight, Time.deltaTime*10);
-        viewer.transform.localPosition = controller.center+ Vector3.up * (controller.height/2-0.1f);
+        else controller.height = Mathf.Lerp(controller.height, defaultHeight, Time.deltaTime * 10);
+        viewer.transform.localPosition = controller.center + Vector3.up * (controller.height / 2 - 0.1f);
         if (!controller.isGrounded)
         {
-            moveDemand.y += grav*Time.deltaTime;
+            moveDemand.y += grav * Time.deltaTime;
         }
         else moveDemand.y = 0;
+
         if (move.sqrMagnitude > 0)
         {
             onMove?.Invoke(move.magnitude / moveSpeed);
         }
-        
+
+    }
+
+    public void Init(SprintController sprintController)
+    {
+        _sprintController = sprintController != null ? sprintController : throw new ArgumentNullException(nameof(sprintController));
+        controller = GetComponent<CharacterController>();
+        input = GetComponentInParent<ControllInput>().controlls;
+        InitControlls();
+        Cursor.lockState = CursorLockMode.Locked;
+        viewAngle = 0;
+        defaultHeight = controller.height;
     }
 }
