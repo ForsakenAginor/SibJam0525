@@ -28,7 +28,7 @@ public class NPCController : MonoBehaviour
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
     Automaton automaton;
-
+    [HideInInspector]
     public States currentState;
     public List<Transform> waypoints;
     
