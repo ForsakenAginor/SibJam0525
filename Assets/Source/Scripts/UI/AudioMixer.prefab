@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 1078916333201880614}
   - component: {fileID: 4771187422541056232}
   - component: {fileID: 6036462219511526015}
-  - component: {fileID: 5486213917108414701}
+  - component: {fileID: 4703825435450940358}
   m_Layer: 5
   m_Name: AudioMixer
   m_TagString: Untagged
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 3
---- !u!114 &5486213917108414701
+--- !u!114 &4703825435450940358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1662,9 +1662,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5289655755501387655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f161218edeff7e4896765e63023416c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d1177ed4fe898543841d72c7170e857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: {fileID: 8433511788789656845}
+  sfxgrpname: SoundFx
+  sfxSlider: {fileID: 7495858635742266387}
+  musicgrpname: Music
+  musicSlider: {fileID: 3402955283992116420}
 --- !u!1 &5290112520602475482
 GameObject:
   m_ObjectHideFlags: 0
