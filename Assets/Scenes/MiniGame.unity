@@ -450,7 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509240891}
   m_Layer: 10
-  m_Name: Loker
+  m_Name: Locker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
   gameObject1: {fileID: 1389094667}
   gameObject2: {fileID: 2068414704}
   gameObject3: {fileID: 48074332}
-  Loker: {fileID: 509240890}
+  Locker: {fileID: 0}
 --- !u!1 &1116014288
 GameObject:
   m_ObjectHideFlags: 0
