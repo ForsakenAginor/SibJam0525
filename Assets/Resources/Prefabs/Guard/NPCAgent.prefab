@@ -265,6 +265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6666982200038077678}
+  - {fileID: 2950617876631303839}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &5681450167136532388
@@ -375,6 +376,61 @@ MonoBehaviour:
         m_CallState: 2
   damage: 5
   visualPrefab: {fileID: 3095666088899119638, guid: 075af0b6bfaf139448a6b3b2ceceb587, type: 3}
+--- !u!1 &8882401568488572529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2950617876631303839}
+  - component: {fileID: 4185258939710230057}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2950617876631303839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882401568488572529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9154555548194867099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4185258939710230057
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882401568488572529}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.34875658
+  m_Height: 1.7071474
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.83567417, z: 0}
 --- !u!1001 &3042520218775832047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transparentMaterialPrefab: {fileID: 2100000, guid: 90c6d24464adc65409edce5276cec2f5, type: 2}
   _renderer: {fileID: 7544380383234504190}
-  _collider: {fileID: 0}
+  _collider: {fileID: 4185258939710230057}
 --- !u!4 &3734899465218961864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7555455537342472909, guid: c808425852eb1d3459ec68a1d3138876, type: 3}
