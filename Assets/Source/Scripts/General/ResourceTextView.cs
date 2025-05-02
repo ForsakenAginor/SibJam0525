@@ -4,6 +4,7 @@ using UnityEngine;
 public class ResourceTextView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
+    [SerializeField] private string _symbol = "";
     private IResource _resource;
 
     private void OnDestroy()
@@ -21,6 +22,6 @@ public class ResourceTextView : MonoBehaviour
 
     private void OnResourceChanged()
     {
-        _text.text = $"{_resource.Amount}/{_resource.Maximum}";
+        _text.text = $"{_resource.Amount}{_symbol}/{_resource.Maximum}{_symbol}";
     }
 }
