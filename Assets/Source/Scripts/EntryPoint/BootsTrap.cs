@@ -12,13 +12,12 @@ public class BootsTrap : MonoBehaviour
         StartCoroutine(SymbolLoader());
        
     }
-    private void Start()
-    {
-         SceneManager.LoadScene(Scenes.Menu.ToString());
-    }
+    
     private IEnumerator SymbolLoader()
     {
         loadSymbol.SetActive(true);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(Scenes.Menu.ToString());
+
     }
 }
