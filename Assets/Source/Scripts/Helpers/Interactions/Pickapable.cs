@@ -2,6 +2,7 @@
 using NSpace;
 using System;
 
+[RequireComponent(typeof(CollectAnimation))]
 public class Pickapable : InteractableBase
 {
     [SerializeField] private int _value;
@@ -22,7 +23,8 @@ public class Pickapable : InteractableBase
         if (pressed)
         {
             Pickuped?.Invoke(this);
-            Destroy(gameObject);
+            GetComponent<CollectAnimation>().StartAnimation();
+            Destroy(this);
         }
     }
 
