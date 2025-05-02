@@ -673,9 +673,9 @@ MonoBehaviour:
   _playerHealthBar: {fileID: 2057701409}
   _playerStaminaBar: {fileID: 2057701408}
   _playerMoneyBar: {fileID: 2057701407}
-  _playerHealthText: {fileID: 0}
-  _playerStaminaText: {fileID: 0}
-  _playerMoneyText: {fileID: 0}
+  _playerHealthText: {fileID: 2057701413}
+  _playerStaminaText: {fileID: 2057701412}
+  _playerMoneyText: {fileID: 2057701411}
   _maxHealth: 100
   _maxStamina: 100
   _maxMoney: 10000
