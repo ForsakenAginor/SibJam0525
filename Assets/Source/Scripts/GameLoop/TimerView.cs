@@ -26,9 +26,15 @@ public class TimerView : MonoBehaviour
         _timer.TimeChanged += OnTimeChanged;
 
         if (stage == GameStage.Collecte)
+        {
             _labelField.text = AlertDisabled;
+        }
         else if (stage == GameStage.Escape)
+        {
             _labelField.text = AlertEnabled;
+            _labelField.GetComponent<Pulse>().StartAnimation();
+            _timerField.GetComponent<Pulse>().StartAnimation();
+        }
         else
             throw new NotImplementedException();
     }
