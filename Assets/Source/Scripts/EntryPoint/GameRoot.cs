@@ -56,7 +56,8 @@ public class GameRoot : MonoBehaviour
 
     private void OnDestroy()
     {
-        _lifeCycle.PlayerWon -= OnPlayerWon;
+        _lifeCycle.PlayerEscaped -= OnPlayerWon;
+        _lifeCycle.PlayerLoose -= OnPlayerDying;
         _playerHealth.ResourceOver -= OnPlayerDying;
         _restartButton.onClick.RemoveListener(OnRestartButtonClick);
 
@@ -66,7 +67,8 @@ public class GameRoot : MonoBehaviour
 
     private void Subscribe()
     {
-        _lifeCycle.PlayerWon += OnPlayerWon;
+        _lifeCycle.PlayerEscaped += OnPlayerWon;
+        _lifeCycle.PlayerLoose += OnPlayerDying;
         _restartButton.onClick.AddListener(OnRestartButtonClick);
         _playerHealth.ResourceOver += OnPlayerDying;
 

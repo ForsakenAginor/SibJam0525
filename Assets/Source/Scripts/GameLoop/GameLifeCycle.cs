@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class GameLifeCycle : MonoBehaviour
@@ -6,35 +6,61 @@ public class GameLifeCycle : MonoBehaviour
     [SerializeField] private LevelEscape _escapeCollider;
     [SerializeField] private SwitchableElement _moneyBar;
 
+    [Header("Time logic")]
+    [SerializeField] private float _escapeTime;
+    [SerializeField] private float _lootTime;
+    [SerializeField] private TimerView _timerView;
+    [SerializeField] private Timer _timer;
+
     private Resource _money;
     private GameStage _stage;
 
-    public event Action PlayerWon;
+    public event Action PlayerEscaped;
+    public event Action PlayerLoose;
 
     private void OnDestroy()
     {
-        _money.ResourceFulfill += OnMoneyFulfill;
         _escapeCollider.PlayerEscaped -= OnPlayerEscaped;
+        _timer.TimeIsGone -= OnEscapeTimeEnded;
     }
 
     public void Init(Resource money)
     {
         _money = money != null ? money : throw new ArgumentNullException(nameof(money));
         _stage = GameStage.Collecte;
-        _money.ResourceFulfill += OnMoneyFulfill;
+        _timer.Init(_lootTime);
+        _timer.StartTimer();
+        _timerView.Init(_timer, _stage);
+
+        _timer.TimeIsGone += ChangeStateToEscape;
+        _money.ResourceFulfill += ChangeStateToEscape;
         _escapeCollider.PlayerEscaped += OnPlayerEscaped;
     }
 
     private void OnPlayerEscaped()
     {
-        PlayerWon?.Invoke();
+        PlayerEscaped?.Invoke();
     }
 
-    private void OnMoneyFulfill()
+    private void ChangeStateToEscape()
     {
+        _money.ResourceFulfill -= ChangeStateToEscape;
+        _timer.TimeIsGone -= ChangeStateToEscape;
+
         _stage = GameStage.Escape;
-        _moneyBar.Disable();
+        //_moneyBar.Disable();
         _escapeCollider.Enable();
+
+        _timer.Init(_escapeTime);
+        _timer.StartTimer();
+        _timerView.Init(_timer, _stage);
+
+        _timer.TimeIsGone += OnEscapeTimeEnded; 
+    }
+
+    private void OnEscapeTimeEnded()
+    {
+        PlayerLoose?.Invoke();
     }
 }
 
