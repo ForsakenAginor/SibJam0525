@@ -14,9 +14,12 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private PickapableOverlay _overlay;
 
     [Header("Bars")]
-    [SerializeField] private ResourceView _playerHealthBar;
-    [SerializeField] private ResourceView _playerStaminaBar;
-    [SerializeField] private ResourceView _playerMoneyBar;
+    [SerializeField] private ResourceSliderView _playerHealthBar;
+    [SerializeField] private ResourceSliderView _playerStaminaBar;
+    [SerializeField] private ResourceSliderView _playerMoneyBar;
+    [SerializeField] private ResourceTextView _playerHealthText;
+    [SerializeField] private ResourceTextView _playerStaminaText;
+    [SerializeField] private ResourceTextView _playerMoneyText;
 
     [Header("Player")]
     [SerializeField] private int _maxHealth;
@@ -100,6 +103,9 @@ public class GameRoot : MonoBehaviour
         _playerHealthBar.Init(_playerHealth);
         _playerStaminaBar.Init(stamina);
         _playerMoneyBar.Init(_money);
+        _playerHealthText.Init(_playerHealth);
+        _playerStaminaText.Init(stamina);
+        _playerMoneyText.Init(_money);
     }
 
     private void OnPlayButtonClick()

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ResourceView : MonoBehaviour
+public class ResourceSliderView : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     private IResource _resource;
