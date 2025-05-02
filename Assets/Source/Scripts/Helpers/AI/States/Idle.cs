@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using NSpace.AI;
-
+using NSpace;
 class Idle : IState
 {
     NPCController host;
@@ -23,7 +23,7 @@ class Idle : IState
         turnsCount = 0;
 
         point = host.transform.position;
-        host.currentState = NPCController.States.idle;
+        host.currentState = States.idle;
 
         //host.FindWayTo(host.pos);
     }

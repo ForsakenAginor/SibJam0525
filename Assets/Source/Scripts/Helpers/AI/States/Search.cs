@@ -11,6 +11,7 @@ class Search: IState
     float timeout;
     float lastSwitch;
     float startedAt;
+    Vector3 currentPos;
 
     public bool complete => Time.time - startedAt > timeout;
 
@@ -29,7 +30,7 @@ class Search: IState
         initialPos = host.transform.position;
         lastSwitch = Time.time;
         startedAt = Time.time;
-        host.currentState = NPCController.States.search;
+        host.currentState = States.search;
 
     }
 
@@ -43,11 +44,14 @@ class Search: IState
     {
         if (Time.time - lastSwitch > switchTimeout)
         {
-            Vector3 newDst = initialPos + Random.onUnitSphere.With(y: 0) * spreadRadius;
+            currentPos = initialPos + Random.onUnitSphere.With(y: 0) * spreadRadius;
 
-            host.MoveTo(newDst);
+
+            host.MoveTo(currentPos);
             lastSwitch = Time.time;
+            
         }
+        if (Vector3.Distance(host.transform.position, currentPos) < 1) host.Stop();
     }
 
     

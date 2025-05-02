@@ -33,6 +33,14 @@ public class EnemyAnimationController : MonoBehaviour
         _animator.SetBool(IsDying, false);
     }
 
+    public void Stop()
+    {
+        _animator.SetBool(IsWalking, false);
+        _animator.SetBool(IsRunning, false);
+        _animator.SetBool(IsShooting, false);
+        _animator.SetBool(IsDying, false);
+    }
+
     public void Die()
     {
         _animator.SetBool(IsWalking, false);

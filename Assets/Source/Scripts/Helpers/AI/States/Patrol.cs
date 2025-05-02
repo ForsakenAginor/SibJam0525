@@ -21,7 +21,7 @@ class Patrol : IState
         Debug.Log($"{host.name} entered patrol mode");
         host.Stop();
         host.SetRun(false); 
-        host.currentState = NPCController.States.patrol;
+        host.currentState = States.patrol;
         currentWp = (currentWp) % host.waypoints.Count;
         point = host.waypoints[currentWp].transform.position;
         host.MoveTo(point);

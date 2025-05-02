@@ -15,3 +15,7 @@ MonoBehaviour:
   searchRadius: 15
   searchTimeout: 30
   searchPeriod: 5
+  minDistance: 2
+  fireRate: 3
+  fireRange: 15
+  keepTime: 5
