@@ -3,35 +3,25 @@ using UnityEngine.UI;
 
 public class ResourceView : MonoBehaviour
 {
-    [SerializeField] private Image _image; 
+    [SerializeField] private Slider _slider;
     private IResource _resource;
 
     private void OnDestroy()
     {
-        if (_resource != null)
-        {
-            _resource.ResourcesAmountChanged -= OnResourceChanged;
-        }
+        _resource.ResourcesAmountChanged -= OnResourceChanged;
     }
 
     public void Init(IResource resource)
     {
         _resource = resource;
-        UpdateImageFill(); 
+        _slider.maxValue = _resource.Maximum;
+        _slider.value = _resource.Amount;
 
         _resource.ResourcesAmountChanged += OnResourceChanged;
     }
 
     private void OnResourceChanged()
     {
-        UpdateImageFill(); 
-    }
-
-    private void UpdateImageFill()
-    {
-        
-        float fillAmount = _resource.Amount / _resource.Maximum;
-        _image.fillAmount = fillAmount; 
+        _slider.value = _resource.Amount;
     }
 }
-
