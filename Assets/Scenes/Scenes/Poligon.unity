@@ -1267,6 +1267,10 @@ PrefabInstance:
       value: NPCAgent
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: brain
+      value: 
+      objectReference: {fileID: 11400000, guid: e35529aca084add44bca21e8b4fc65da, type: 2}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 134225352}
