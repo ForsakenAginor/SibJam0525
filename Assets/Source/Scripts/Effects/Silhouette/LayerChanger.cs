@@ -25,9 +25,8 @@ public class LayerChanger : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 dir = (transform.position - _mainCamera.transform.position).normalized;
-        float distance = Vector3.Distance(_mainCamera.transform.position, transform.position);
 
-        if (Physics.Raycast(_mainCamera.transform.position, dir, out hit, distance) && hit.collider == _collider)
+        if (Physics.Raycast(_mainCamera.transform.position, dir, out hit) && hit.collider == _collider)
         {
             gameObject.layer = LayerMask.NameToLayer("Default");
             _renderer.material = _defaultMaterial;

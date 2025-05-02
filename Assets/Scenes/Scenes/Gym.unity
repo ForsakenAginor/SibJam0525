@@ -738,8 +738,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _escapeCollider: {fileID: 1063050493}
   _moneyBar: {fileID: 0}
-  _escapeTime: 120
-  _lootTime: 120
+  _escapeTime: 20
+  _lootTime: 20
   _timerView: {fileID: 2057701410}
   _timer: {fileID: 94354758}
   _allertOff: {fileID: 1012914326}
@@ -4750,6 +4750,7 @@ GameObject:
   - component: {fileID: 1504543973}
   - component: {fileID: 1504543974}
   - component: {fileID: 1504543975}
+  - component: {fileID: 1504543976}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -4847,7 +4848,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -4873,6 +4874,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1504543976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504543972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6873f2d9b5256ee45915f3d820ad206c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetScale: {x: 1.1, y: 1.1, z: 1.1}
+  _scaleDuration: 1
+  _targetTextColor: {r: 0.54509807, g: 0.12156863, b: 0.21568628, a: 1}
+  _colorDuration: 1
+  _textToAnimate: {fileID: 1504543975}
 --- !u!1 &1554272803
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,7 +6491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 61077251}
-  _symbol: $
+  _symbol: 
 --- !u!114 &2057701412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6590,6 +6608,7 @@ GameObject:
   - component: {fileID: 2079308174}
   - component: {fileID: 2079308173}
   - component: {fileID: 2079308172}
+  - component: {fileID: 2079308175}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6660,7 +6679,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -6713,6 +6732,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2079308175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079308171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6873f2d9b5256ee45915f3d820ad206c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetScale: {x: 1.1, y: 1.1, z: 1.1}
+  _scaleDuration: 1
+  _targetTextColor: {r: 0.54509807, g: 0.121568635, b: 0.21568629, a: 1}
+  _colorDuration: 1
+  _textToAnimate: {fileID: 2079308172}
 --- !u!1001 &2129543235
 PrefabInstance:
   m_ObjectHideFlags: 0
