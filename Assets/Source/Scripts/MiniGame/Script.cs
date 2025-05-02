@@ -129,10 +129,10 @@ public class Script : MonoBehaviour
     }
     private void UnLock()
     {
-        Vector3 targetPosition = Loker.transform.position + Vector3.up * moveDistance;
-        while (Vector3.Distance(Loker.transform.position, targetPosition) > 0.01f)
+        Vector3 targetPosition = Locker.transform.position + Vector3.up * moveDistance;
+        while (Vector3.Distance(Locker.transform.position, targetPosition) > 0.01f)
         {
-            Loker.transform.position = Vector3.MoveTowards(Loker.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            Locker.transform.position = Vector3.MoveTowards(Locker.transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         }
         
