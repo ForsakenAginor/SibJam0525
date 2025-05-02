@@ -24,6 +24,13 @@ namespace NSpace
 
     }
 
+    public interface IDetectible : IEntity
+    {
+        List<Transform> spotPoints { get; }
+        int side { get; }
+
+    }
+
     public interface IInteractable:IFocusable
     {
         void Interact(IInteractor actor, bool pressed);
@@ -41,7 +48,13 @@ namespace NSpace
         public Vector3 velocity;
         public float distance;
     }
+    public class Detected
+    {
+        public IDetectible entity;
+        public float detectedTime;
+        public Vector3 lastKnownPos;
+    }
 
-    
+
 
 }
