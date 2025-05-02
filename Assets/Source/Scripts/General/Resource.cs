@@ -51,12 +51,13 @@ public class Resource : IResource
             throw new ArgumentOutOfRangeException(nameof(amount));
 
         _amount -= amount;
+        _amount = UnityEngine.Mathf.Clamp(_amount, 0, _maximum);
         ResourcesAmountChanged?.Invoke();
 
         if (_amount <= 0)
         {
-            _amount = 0;
             ResourceOver?.Invoke();
         }
+
     }
 }
