@@ -12,6 +12,10 @@ public class GameLifeCycle : MonoBehaviour
     [SerializeField] private TimerView _timerView;
     [SerializeField] private Timer _timer;
 
+    [Header("Alert prefabs for Farkhad")]
+    [SerializeField] private SwitchableElement _allertOff;
+    [SerializeField] private SwitchableElement _allertOn;
+
     private Resource _money;
     private GameStage _stage;
 
@@ -32,6 +36,9 @@ public class GameLifeCycle : MonoBehaviour
         _timer.StartTimer();
         _timerView.Init(_timer, _stage);
 
+        _allertOff.Enable();
+        _allertOn.Disable();
+
         _timer.TimeIsGone += ChangeStateToEscape;
         _money.ResourceFulfill += ChangeStateToEscape;
         _escapeCollider.PlayerEscaped += OnPlayerEscaped;
@@ -46,6 +53,9 @@ public class GameLifeCycle : MonoBehaviour
     {
         _money.ResourceFulfill -= ChangeStateToEscape;
         _timer.TimeIsGone -= ChangeStateToEscape;
+
+        _allertOff.Disable();
+        _allertOn.Enable();
 
         _stage = GameStage.Escape;
         //_moneyBar.Disable();

@@ -7,7 +7,7 @@ public class GameRoot : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private Button[] _exitButtons;
-    [SerializeField] private Button _restartButton;
+    [SerializeField] private Button[] _restartButtons;
     [SerializeField] private SwitchableElement _loseScreen;
     [SerializeField] private SwitchableElement _winScreen;
     [SerializeField] private SwitchableElement _buttonCanvas;
@@ -62,7 +62,9 @@ public class GameRoot : MonoBehaviour
         _lifeCycle.PlayerEscaped -= OnPlayerWon;
         _lifeCycle.PlayerLoose -= OnPlayerDying;
         _playerHealth.ResourceOver -= OnPlayerDying;
-        _restartButton.onClick.RemoveListener(OnRestartButtonClick);
+
+        foreach(var button in _restartButtons)
+            button.onClick.RemoveListener(OnRestartButtonClick);
 
         foreach (var button in _exitButtons)
             button.onClick.RemoveListener(OnPlayButtonClick);
@@ -72,8 +74,10 @@ public class GameRoot : MonoBehaviour
     {
         _lifeCycle.PlayerEscaped += OnPlayerWon;
         _lifeCycle.PlayerLoose += OnPlayerDying;
-        _restartButton.onClick.AddListener(OnRestartButtonClick);
         _playerHealth.ResourceOver += OnPlayerDying;
+
+        foreach (var button in _restartButtons)
+            button.onClick.AddListener(OnRestartButtonClick);
 
         foreach (var button in _exitButtons)
             button.onClick.AddListener(OnPlayButtonClick);
