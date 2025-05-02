@@ -20,7 +20,7 @@ public class Script : MonoBehaviour
     [SerializeField] private GameObject gameObject2;
     [SerializeField] private GameObject gameObject3;
 
-    [SerializeField] private GameObject Loker;
+    [SerializeField] private GameObject Locker;
    
     private List<GameObject> generatedSequence = new List<GameObject>();
     
