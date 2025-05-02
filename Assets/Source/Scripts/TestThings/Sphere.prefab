@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 384424141435662846}
   - component: {fileID: 9198148052080956927}
   - component: {fileID: 5421294156305273431}
+  - component: {fileID: 9109894334969243297}
   m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 836305951425d8c4cbd3ec54bb8cdd49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,5 +119,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03ecfa1587039b47a36deaabf7f3ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overlay: {fileID: 0}
+  _overlay: {fileID: 0}
   _value: 1000
+--- !u!114 &9109894334969243297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073922993574551657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86036fe6f2d1f234187ce3c107e92934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationDuration: 2
+  _rotateMode: 1
+  _scaleEndValue: {x: 0, y: 0, z: 0}
+  _scaleDuration: 2
+  _alphaClippingEndValue: 1
+  _alphaClippingDuration: 2
+  _shaderPropertyName: _AlphaCliping
