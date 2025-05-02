@@ -11,13 +11,13 @@ class Chase : IState
 
         this.host = host;
     }
+
     public void OnEnter()
     {
         Debug.Log($"{host.name} entered chase mode");
         host.Stop();
         host.SetRun(true);
         host.currentState = NPCController.States.chase;
-
     }
 
     public void OnExit()
