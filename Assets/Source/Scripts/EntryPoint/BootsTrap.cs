@@ -1,10 +1,24 @@
+
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BootsTrap : MonoBehaviour
 {
+    [SerializeField] private GameObject loadSymbol;
     private void Awake()
     {
-        SceneManager.LoadScene(Scenes.Menu.ToString());
+        StartCoroutine(SymbolLoader());
+       
+    }
+    private void Start()
+    {
+         SceneManager.LoadScene(Scenes.Menu.ToString());
+    }
+    private IEnumerator SymbolLoader()
+    {
+        loadSymbol.SetActive(true);
+        yield return new WaitForSeconds(10);
     }
 }

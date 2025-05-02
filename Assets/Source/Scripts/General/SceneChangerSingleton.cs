@@ -11,6 +11,7 @@ namespace Assets.Scripts.General
     {
         private static SceneChangerSingleton _instance;
 
+        
         [SerializeField] private Image _blackScreenImage;
         [SerializeField] private float _animationDuration;
 
@@ -47,7 +48,6 @@ namespace Assets.Scripts.General
         private IEnumerator LoadAsyncScene(string scene)
         {
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
-
             while (asyncLoad.isDone == false)
                 yield return null;
         }
