@@ -15,7 +15,7 @@ public class NPCController : MonoBehaviour
         chase       
     }
 
-
+    [SerializeField] private EnemyAnimationController _enemyAnimationController;
     NavMeshAgent agent;
     [SerializeField] Transform sensor;
     [SerializeField] float vievAngle;
@@ -70,6 +70,11 @@ public class NPCController : MonoBehaviour
     public void SetRun(bool run)
     {
         agent.speed = run ? runSpeed : walkSpeed;
+    
+        if(run)
+            _enemyAnimationController.Run();
+        else
+            _enemyAnimationController.Walk();
     }
 
     public bool hasPath => agent.hasPath;
