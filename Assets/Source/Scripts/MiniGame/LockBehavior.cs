@@ -21,6 +21,8 @@ public class LockBehavior : MonoBehaviour
     [SerializeField] private GameObject Locker;
 
     private List<GameObject> generatedSequence = new List<GameObject>();
+    public Vector3 offset = new Vector3(0, 0, 0.5f); 
+    public float rotationSpeed = 15f; 
 
 
     private void Start()
@@ -122,18 +124,27 @@ public class LockBehavior : MonoBehaviour
 
         obj.transform.position = targetPosition;
     }
-    private void UnLock()
+    private IEnumerator UnLock()
     {
         Vector3 targetPosition = Locker.transform.position + Vector3.up * moveDistance;
+        Vector3 pivotPoint = Locker.transform.position + offset;
+        
         while (Vector3.Distance(Locker.transform.position, targetPosition) > 0.01f)
         {
-            Locker.transform.position = Vector3.MoveTowards(Locker.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            
+            Locker.transform.RotateAround(pivotPoint, Vector3.up, rotationSpeed * Time.deltaTime/3);
+            Locker.transform.position = Vector3.MoveTowards(Locker.transform.position, targetPosition, moveSpeed * Time.deltaTime/3);
+            yield return null;
 
         }
+        
 
     }
 
+    
 
+    
+        
     private void CheckSequences()
     {
         bool sequencesMatch = true;
@@ -151,7 +162,7 @@ public class LockBehavior : MonoBehaviour
         if (sequencesMatch)
         {
             Debug.Log("Получилось! Последовательности совпадают.");
-            UnLock();
+            StartCoroutine(UnLock());
             ResetSelectedObjects();
 
         }
