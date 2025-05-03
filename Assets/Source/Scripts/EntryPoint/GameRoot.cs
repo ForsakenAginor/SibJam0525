@@ -8,7 +8,7 @@ public class GameRoot : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Button[] _exitButtons;
     [SerializeField] private Button[] _restartButtons;
-    [SerializeField] private SwitchableElement _loseScreen;
+    [SerializeField] private EndgameAnimation _loseScreen;
     [SerializeField] private SwitchableElement _winScreen;
     [SerializeField] private SwitchableElement _buttonCanvas;
     [SerializeField] private PickapableOverlay _overlay;
@@ -99,7 +99,7 @@ public class GameRoot : MonoBehaviour
     {
         Time.timeScale = 0f;
         _buttonCanvas.Disable();
-        _loseScreen.Enable();
+        _loseScreen.PlayAnimation();
     }
 
     private void InitPlayerResourceViews(Resource stamina)
