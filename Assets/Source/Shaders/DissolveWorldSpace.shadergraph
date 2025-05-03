@@ -970,7 +970,7 @@
     "m_ObjectId": "149ee1d6851149668b4774ece216c09f",
     "m_Title": "Border",
     "m_Position": {
-        "x": -870.0001220703125,
+        "x": -869.9998168945313,
         "y": 175.0
     }
 }
@@ -1618,7 +1618,7 @@
     "m_ObjectId": "3a1e4c3c29b74f6ead4142099356cae0",
     "m_Title": "NoiseSetup",
     "m_Position": {
-        "x": -2010.000244140625,
+        "x": -2009.9998779296875,
         "y": 52.0
     }
 }
@@ -2519,9 +2519,6 @@
     "m_AlphaClip": true,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
-    "m_DisableTint": false,
-    "m_AdditionalMotionVectorMode": 0,
-    "m_AlembicMotionVectors": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
@@ -4377,7 +4374,7 @@
     "m_ObjectId": "ea61fcb89c524557a5f19dd9f69c4624",
     "m_Title": "TimeLogic",
     "m_Position": {
-        "x": -1592.000244140625,
+        "x": -1591.9998779296875,
         "y": 1135.0001220703125
     }
 }
