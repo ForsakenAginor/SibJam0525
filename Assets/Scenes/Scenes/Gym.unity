@@ -739,8 +739,8 @@ MonoBehaviour:
       Data3: -1121560925
       Data4: 1756747125
     Path: event:/AllarmLoop
-  _escapeTime: 10
-  _lootTime: 10
+  _escapeTime: 30
+  _lootTime: 30
   _timerView: {fileID: 2057701410}
   _timer: {fileID: 94354758}
   _allertOff: {fileID: 1012914326}

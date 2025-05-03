@@ -395,6 +395,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5400a52c76126ad41bbffb4d96823ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fireSound:
+    Guid:
+      Data1: 933136267
+      Data2: 1309960737
+      Data3: 589307039
+      Data4: -1719975222
+    Path: event:/Enemy/Enemy_Pistol_Shot
   muzzle: {fileID: 8912687301893603305}
   dispersion: 0.47
   range: 30
