@@ -8,6 +8,8 @@ public class SprintController : MonoBehaviour
     [SerializeField] private int _recoveryValue = 5;
     [SerializeField] private int _threshold = 5;
 
+    public System.Action<float> onSprintValue;
+
     private Resource _stamina;
     private ISprinter _sprinter;
     private float _accumulator;
@@ -36,6 +38,7 @@ public class SprintController : MonoBehaviour
                 _stamina.Add(Step);
             }
         }
+        onSprintValue?.Invoke(_stamina.Amount);
     }
 
     public void Init(Resource stamina, ISprinter sprinter)
