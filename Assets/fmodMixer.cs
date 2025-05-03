@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using UnityEngine.UI;
+using FMOD.Studio;
 
 public class fmodMixer : MonoBehaviour
 {
 
     [SerializeField] Slider masterVolume;
-    [SerializeField] string sfxgrpname;
     [SerializeField] Slider sfxSlider;
     [SerializeField] string musicgrpname;
     [SerializeField] Slider musicSlider;
-    string masterBusString = "bus:/"; 
-    
+    string sfxgrpname = "bus:/SFX";
+    string masterBusString = "bus:/";
+
     FMOD.Studio.Bus masterBus;
     FMOD.Studio.Bus sfxgrp;
     FMOD.Studio.Bus muzicgrp;
     private void OnEnable()
     {
         masterBus = RuntimeManager.GetBus(masterBusString);
-        sfxgrp = RuntimeManager.GetBus(masterBusString+ sfxgrpname);
+        sfxgrp = RuntimeManager.GetBus(sfxgrpname);
         muzicgrp = RuntimeManager.GetBus(masterBusString + musicgrpname);
-        
+
         masterBus.getVolume(out float master);
         masterVolume.SetValueWithoutNotify(master);
         sfxgrp.getVolume(out float sfxVolume);
@@ -40,7 +41,7 @@ public class fmodMixer : MonoBehaviour
     }
 
     public void SetMasterVolume(float volume)
-    { 
+    {
         masterBus.setVolume(volume);
     }
     public void SetSfxVolume(float volume)

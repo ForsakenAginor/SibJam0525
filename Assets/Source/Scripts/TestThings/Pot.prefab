@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _overlay: {fileID: 0}
-  _value: 1000
+  _value: 500
 --- !u!114 &2810038232096501566
 MonoBehaviour:
   m_ObjectHideFlags: 0

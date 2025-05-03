@@ -1,10 +1,14 @@
+using Assets.Scripts.General;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BootsTrap : MonoBehaviour
 {
-    private void Awake()
+    private IEnumerator Start()
     {
-        SceneManager.LoadScene(Scenes.Menu.ToString());
+        SceneChangerSingleton.Instance.FadeOut();
+        yield return new WaitForSeconds(2f);
+        SceneChangerSingleton.Instance.LoadScene(Scenes.Menu.ToString());
     }
 }
