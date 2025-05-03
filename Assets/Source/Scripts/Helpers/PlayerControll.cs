@@ -23,7 +23,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     [SerializeField] float crouchMult;
     [SerializeField] Transform viewer;
     [SerializeField] float ceilingMinHeight;
-    [SerializeField] float inertia;
+    [SerializeField] float staminaMin;
     [SerializeField] PlayerSoundController soundController;
     [SerializeField] UnityEngine.Events.UnityEvent<float> onMove;
     [SerializeField] string surfaceTypeParameterName;
@@ -32,9 +32,12 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     [SerializeField] EventReference crouchSound;
     [SerializeField] EventReference jumpSound;
     [SerializeField] EventReference landSound;
+    
 
     public System.Action onJump;
     public System.Action onLand;
+    [SerializeField] UnityEngine.Events.UnityEvent<float> onSprint;
+    [SerializeField] UnityEngine.Events.UnityEvent<float> onHeartBeat;
 
 
     CharacterController controller;
@@ -179,9 +182,15 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     public bool isRunning => sprint;
     public bool isCrouching => crouch;
 
+    void CheckStamina(float stamina)
+    {
+        onSprint?.Invoke(stamina);
+    }
+
     public void Init(SprintController sprintController)
     {
         _sprintController = sprintController != null ? sprintController : throw new ArgumentNullException(nameof(sprintController));
+        _sprintController.onSprintValue = CheckStamina;
         controller = GetComponent<CharacterController>();
         input = GetComponentInParent<ControllInput>().controlls;
         InitControlls();

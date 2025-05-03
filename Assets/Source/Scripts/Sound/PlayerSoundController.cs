@@ -10,7 +10,7 @@ public class PlayerSoundController : MonoBehaviour
     [SerializeField] EventReference[] storedEvents;
     [SerializeField] SoundEventParameter[] storedEventparameters;
     [SerializeField] UnityEngine.Events.UnityEvent onObjectEnabled;
-
+    
     public void PlayStoredEvent(int index)
     {
         if (storedEvents.Length <= 0) return;
