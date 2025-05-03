@@ -1171,6 +1171,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.aimSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.runSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.walkSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 9209815735787070112}
@@ -1412,6 +1424,18 @@ PrefabInstance:
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.aimSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.runSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.walkSpeed
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -4353,6 +4377,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.aimSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.runSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.walkSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 951705002128126700}
@@ -5513,6 +5549,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.aimSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.runSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.walkSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 4954457828321808059}
@@ -6541,6 +6589,18 @@ PrefabInstance:
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.aimSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.runSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.walkSpeed
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
