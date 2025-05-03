@@ -7,6 +7,7 @@ public class LayerChanger : MonoBehaviour
     [SerializeField] private Material _transparentMaterialPrefab;
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Collider _collider;
+    [SerializeField] private LayerMask _mask;
 
     private Camera _mainCamera;
     private Material _defaultMaterial;
@@ -24,9 +25,9 @@ public class LayerChanger : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        Vector3 dir = (transform.position - _mainCamera.transform.position).normalized;
+        Vector3 dir = (_collider.transform.position - _mainCamera.transform.position).normalized;
 
-        if (Physics.Raycast(_mainCamera.transform.position, dir, out hit) && hit.collider == _collider)
+        if (Physics.Raycast(_mainCamera.transform.position, dir, out hit, _mask) && hit.collider == _collider)
         {
             gameObject.layer = LayerMask.NameToLayer("Default");
             _renderer.material = _defaultMaterial;

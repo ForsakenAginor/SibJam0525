@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6236795304052765787}
   - component: {fileID: 8263077282004317362}
   - component: {fileID: 392141894675515035}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 8382383083764432655}
   - component: {fileID: 2761265253027166366}
   - component: {fileID: 8969468969620001222}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SilhouetteCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351646690616998490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5952612423164290911}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cameraSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 7410234098190510352}
   - component: {fileID: 8121773943372261060}
   - component: {fileID: 8250342125231057202}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5131286034785150944}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
