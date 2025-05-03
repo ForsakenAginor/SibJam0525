@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
+using FMOD.Studio;
+using FMODUnity;
 
 [RequireComponent(typeof(Renderer))]
 public class CollectAnimation : MonoBehaviour
@@ -18,6 +20,9 @@ public class CollectAnimation : MonoBehaviour
     [SerializeField] private float _alphaClippingDuration = 2f;
     [SerializeField] private string _shaderPropertyName = "_AlphaClipping";
 
+    [SerializeField] private EventReference _sound;
+    private EventInstance eventInstance;
+
     private Material _targetMaterial;
 
     private Sequence _animationSequence;
@@ -27,10 +32,20 @@ public class CollectAnimation : MonoBehaviour
         Renderer renderer = GetComponent<Renderer>();
         _targetMaterial = new Material(renderer.material);
         renderer.material = _targetMaterial;
+
+        eventInstance = RuntimeManager.CreateInstance(_sound);
+        eventInstance.setParameterByName("ItemsType", 2);
+    }
+
+    private void OnDestroy()
+    {
+        eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        eventInstance.release();
     }
 
     public void StartAnimation()
     {
+        eventInstance.start();
         _animationSequence = DOTween.Sequence();
 
         _animationSequence.Join(
@@ -40,6 +55,11 @@ public class CollectAnimation : MonoBehaviour
 
         _animationSequence.Join(
             transform.DOScale(_scaleEndValue, _scaleDuration)
+                .SetEase(Ease.InQuad)
+        );
+
+        _animationSequence.Join(
+            transform.DOMoveY(transform.position.y + 0.75f, _scaleDuration)
                 .SetEase(Ease.InQuad)
         );
 
