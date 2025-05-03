@@ -1,4 +1,5 @@
 using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,43 +7,30 @@ using UnityEngine.UIElements;
 
 public class PlayerSoundController : MonoBehaviour
 {
-    PlayerControll player;
-   
-    float lastStep;
+    [SerializeField] EventReference[] storedEvents;
+    [SerializeField] SoundEventParameter[] storedEventparameters;
 
-    
-
-    private void Update()
+    public void PlayStoredEvent(int index)
     {
-        if (player == null)
-        {
-            player = GetComponent<PlayerControll>();
-            player.onJump = () => PlaySound(jumpEvent, transform.position, null); ;
-            player.onLand = () => PlaySound(landEvent, transform.position, null);
-        }
-        float speed = player.speedPar;
-
-        if (speed>0.1f && Time.time - lastStep > 1 / (speed + 1))
-        {
-            if (player.floor != null)
-            {
-                Surface surf = player.floor.GetComponentInParent<Surface>();
-                List<SoundEventParameter> parameters=new List<SoundEventParameter>();
-                if (surf != null)
-                {
-                    parameters.Add(new SoundEventParameter("surface_type", surf.surfaceType));
-                }
-                lastStep = Time.time;
-                if (player.isRunning)
-                    PlaySound(runEvent, transform.position,parameters.ToArray());
-                else if (player.isCrouching) PlaySound(crouchEvent, transform.position, parameters.ToArray());
-                else PlaySound(walkEvent, transform.position, parameters.ToArray()); ;
-            }
-
-        }
+        if (storedEvents.Length <= 0) return;
+        index = ((index % storedEvents.Length)+storedEvents.Length)%storedEvents.Length;
+        PlaySound(storedEvents[index],transform.position,storedEventparameters);
     }
 
-    void PlaySound(EventReference reference, Vector3 position, SoundEventParameter[] parameters)
+    public void SetStoredParameter(int index, float value)
+    {
+        storedEventparameters[index].value = value;
+    }
+    public void SetStoredParameter(string name, float value)
+    {
+        for(int i = 0; i<storedEventparameters.Length; i++)
+        {
+            if (storedEventparameters[i].name==name) storedEventparameters[i].value = value;
+        }
+        
+    }
+
+    public void PlaySound(EventReference reference, Vector3 position, SoundEventParameter[] parameters)
     {
         var instance = FMODUnity.RuntimeManager.CreateInstance(reference);
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
@@ -51,33 +39,27 @@ public class PlayerSoundController : MonoBehaviour
             foreach (var par in parameters)
             {
                 instance.setParameterByName(par.name, par.value);
+                Debug.Log(par.name+":"+par.value);
                 //Debug.Log($"{par.name}:{par.value}");
             }
         }
         instance.start();
         instance.release();
     }
+   
+    
 
-    [System.Serializable]
-    public struct SoundEventParameter
+
+}
+[System.Serializable]
+public struct SoundEventParameter
+{
+    public string name;
+    public float value;
+
+    public SoundEventParameter(string name, float value)
     {
-        public string name;
-        public float value;
-
-        public SoundEventParameter(string name, float value)
-        {
-            this.name = name;
-            this.value = value;
-        }
+        this.name = name;
+        this.value = value;
     }
-
-
-    [SerializeField] EventReference walkEvent;
-    [SerializeField] EventReference runEvent;
-    [SerializeField] EventReference crouchEvent;
-    [SerializeField] EventReference jumpEvent;
-    [SerializeField] EventReference landEvent;
-
-
-
 }

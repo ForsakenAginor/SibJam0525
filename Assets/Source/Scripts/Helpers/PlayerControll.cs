@@ -1,6 +1,8 @@
 using UnityEngine;
 using NSpace;
 using System;
+using FMODUnity;
+using System.Collections.Generic;
 
 public interface ISprinter
 {
@@ -10,6 +12,7 @@ public interface ISprinter
 [RequireComponent(typeof(CharacterController))]
 public class PlayerControll : MonoBehaviour, IEntity, ISprinter
 {
+
     [SerializeField] float moveSpeed;
     [SerializeField] float lookSpeed;
     [SerializeField] float jumpHeight;
@@ -21,7 +24,14 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     [SerializeField] Transform viewer;
     [SerializeField] float ceilingMinHeight;
     [SerializeField] float inertia;
+    [SerializeField] PlayerSoundController soundController;
     [SerializeField] UnityEngine.Events.UnityEvent<float> onMove;
+    [SerializeField] string surfaceTypeParameterName;
+    [SerializeField] EventReference walkSound;
+    [SerializeField] EventReference runSound;
+    [SerializeField] EventReference crouchSound;
+    [SerializeField] EventReference jumpSound;
+    [SerializeField] EventReference landSound;
 
     public System.Action onJump;
     public System.Action onLand;
@@ -40,7 +50,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     bool sprint;
     float defaultHeight;
     private SprintController _sprintController;
-
+    float lastStepTime;
     public bool IsSprinting => sprint;
 
     void InitControlls()
@@ -66,19 +76,64 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         if(Physics.Raycast(transform.position+Vector3.up*0.1f,Vector3.down, out RaycastHit ground, 0.2f))
         {
             floor = ground.collider;
+            if(speedPar>0 && Time.time-lastStepTime>(1/(speedPar+1)) && soundController != null)
+            {
+                lastStepTime = Time.time;
+                List<SoundEventParameter> parameters = new List<SoundEventParameter>();
+                if (floor != null)
+                {
+                    Surface surf = floor.GetComponentInParent<Surface>();
+                    if(surf != null)
+                    {
+                        SoundEventParameter soundEventParameter = new SoundEventParameter();
+                        soundEventParameter.name = surfaceTypeParameterName;
+                        soundEventParameter.value = surf.surfaceType;
+                        parameters.Add(soundEventParameter);
+                    }
+                }
+                if(isRunning) soundController.PlaySound(runSound, transform.position, parameters.ToArray());
+                else if(isCrouching) soundController.PlaySound(crouchSound, transform.position, parameters.ToArray());
+                else soundController.PlaySound(walkSound, transform.position, parameters.ToArray());
+            }
         }
         if (jump && controller.isGrounded && !ceiling)
         {
             moveDemand.y = jumpHeight; Debug.Log($"jump:{moveDemand.y}");
             onJump?.Invoke();
+            if(soundController != null)
+            {
+                soundController.PlaySound(jumpSound, transform.position, null);
+            }
             jump = false;
             
+
+
         }
         if (ceiling) crouch = true;
 
         if (controller.isGrounded)
         {
-            if (inAir) { inAir = false; onLand?.Invoke(); }
+            if (inAir) {
+                inAir = false; 
+                onLand?.Invoke();
+                if (soundController != null)
+                {
+                    List<SoundEventParameter> parameters = new List<SoundEventParameter>();
+                    if (floor != null)
+                    {
+                        Surface surf = floor.GetComponentInParent<Surface>();
+                        
+                        if (surf != null)
+                        {
+                            SoundEventParameter soundEventParameter = new SoundEventParameter();
+                            soundEventParameter.name = surfaceTypeParameterName;
+                            soundEventParameter.value = surf.surfaceType;
+                            parameters.Add(soundEventParameter);
+                        }
+                    }
+                    soundController.PlaySound(landSound, transform.position, parameters.ToArray() );
+                }
+            }
             move = (Vector3.ClampMagnitude(transform.TransformDirection(moveDemand).With(y: 0), 1))
             * moveSpeed
             * (crouch ? crouchSpeedMult : 1)
@@ -99,7 +154,9 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         viewer.transform.localPosition = controller.center + Vector3.up * (controller.height / 2 - 0.1f);
         if (!controller.isGrounded)
         {
+            if(moveDemand.y>0) inAir = true;
             moveDemand.y += grav * Time.deltaTime;
+            
         }
         else moveDemand.y = 0;
        

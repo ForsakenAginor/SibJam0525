@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 5681450167136532388}
   - component: {fileID: 7995868921963334257}
   - component: {fileID: 8752302388490812349}
+  - component: {fileID: 1190450631550888320}
   m_Layer: 0
   m_Name: NPCAgent
   m_TagString: Untagged
@@ -374,8 +375,40 @@ MonoBehaviour:
           m_StringArgument: Fire
           m_BoolArgument: 0
         m_CallState: 2
-  damage: 5
+      - m_Target: {fileID: 1190450631550888320}
+        m_TargetAssemblyTypeName: PlayerSoundController, Assembly-CSharp
+        m_MethodName: PlayStoredEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fire
+          m_BoolArgument: 0
+        m_CallState: 2
+  damage: 20
   visualPrefab: {fileID: 3095666088899119638, guid: 075af0b6bfaf139448a6b3b2ceceb587, type: 3}
+--- !u!114 &1190450631550888320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813903204009010312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3866cca03882af469d17b2e5d46e895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storedEvents:
+  - Guid:
+      Data1: 933136267
+      Data2: 1309960737
+      Data3: 589307039
+      Data4: -1719975222
+    Path: event:/Enemy/Enemy_Pistol_Shot
+  storedEventparameters: []
 --- !u!1 &8882401568488572529
 GameObject:
   m_ObjectHideFlags: 0
