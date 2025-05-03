@@ -3,7 +3,12 @@ guid: 982d953598b1ff94383b61d6157e918b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mio3CheckerMapMat_1024
+    second: {fileID: 2100000, guid: e37af4faa52725b4a82fd0c0bf34cd22, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
