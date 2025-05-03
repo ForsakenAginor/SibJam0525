@@ -1,5 +1,129 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7427162674684229387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/SibJam0525/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638818771642932392
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &-7374605158414100734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footstep_Crouch/surfacetype
+  m_EditorClassIdentifier: 
+  Name: surfacetype
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 1337941612
+    data2: 186117504
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5132365549434453284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Footsteps/Footstep_Crouch
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Footsteps/Footstep_Crouch
+  Guid:
+    Data1: -1794249947
+    Data2: 1146616949
+    Data3: -1097708920
+    Data4: -625895913
+  Banks:
+  - {fileID: -854787589524224609}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7374605158414100734}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 800
+--- !u!114 &-3470738750952489432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Footsteps/Footstep_Run
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Footsteps/Footstep_Run
+  Guid:
+    Data1: -1893518612
+    Data2: 1228872333
+    Data3: -730169196
+    Data4: -1600763506
+  Banks:
+  - {fileID: -854787589524224609}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -1959741509526486167}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-1959741509526486167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footstep_Run/surfacetype
+  m_EditorClassIdentifier: 
+  Name: surfacetype
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 1337941612
+    data2: 186117504
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-854787589524224609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +139,10 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638816937496969122
+  lastModified: 638818771644237012
   FileSizes:
   - Name: Desktop
-    Value: 28672
+    Value: 143808
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -36,16 +160,20 @@ MonoBehaviour:
   - {fileID: 6648154040816510156}
   - {fileID: 6602118582478452922}
   - {fileID: -854787589524224609}
+  - {fileID: -7427162674684229387}
   EditorEvents:
-  - {fileID: 5779036640014075940}
+  - {fileID: -5132365549434453284}
+  - {fileID: 3578606088760354958}
+  - {fileID: 8992055458599794144}
+  - {fileID: -3470738750952489432}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6602118582478452922}
   StringsBanks:
   - {fileID: 6648154040816510156}
-  cacheTime: 638816937496969122
+  cacheTime: 638818771644237012
   cacheVersion: 131591
---- !u!114 &5779036640014075940
+--- !u!114 &3578606088760354958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,23 +183,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player_Jump
+  m_Name: event:/Player/Footsteps/Footstep_Walk
   m_EditorClassIdentifier: 
-  Path: event:/Player_Jump
+  Path: event:/Player/Footsteps/Footstep_Walk
   Guid:
-    Data1: 1021721565
-    Data2: 1170435251
-    Data3: -1856073577
-    Data4: 559397733
+    Data1: 863835552
+    Data2: 1340359827
+    Data3: 1245870013
+    Data4: 77558742
   Banks:
   - {fileID: -854787589524224609}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 8305778822674405154}
   MinDistance: 1
   MaxDistance: 20
-  Length: 260
+  Length: 500
 --- !u!114 &6602118582478452922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,10 +216,10 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638816937496889316
+  lastModified: 638818771642865879
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 2120
   Exists: 1
 --- !u!114 &6648154040816510156
 MonoBehaviour:
@@ -107,8 +236,59 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638816937496959134
+  lastModified: 638818771642907433
   FileSizes:
   - Name: Desktop
-    Value: 806
+    Value: 1320
   Exists: 1
+--- !u!114 &8305778822674405154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footstep_Walk/surfacetype
+  m_EditorClassIdentifier: 
+  Name: surfacetype
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 1337941612
+    data2: 186117504
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8992055458599794144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Player_Jump
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Player_Jump
+  Guid:
+    Data1: 1021721565
+    Data2: 1170435251
+    Data3: -1856073577
+    Data4: 559397733
+  Banks:
+  - {fileID: -854787589524224609}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 260
