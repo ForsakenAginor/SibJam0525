@@ -9,6 +9,7 @@ public class PlayerSoundController : MonoBehaviour
 {
     [SerializeField] EventReference[] storedEvents;
     [SerializeField] SoundEventParameter[] storedEventparameters;
+    [SerializeField] UnityEngine.Events.UnityEvent onObjectEnabled;
 
     public void PlayStoredEvent(int index)
     {
@@ -30,6 +31,11 @@ public class PlayerSoundController : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        onObjectEnabled?.Invoke();
+    }
+
     public void PlaySound(EventReference reference, Vector3 position, SoundEventParameter[] parameters)
     {
         var instance = FMODUnity.RuntimeManager.CreateInstance(reference);
@@ -39,7 +45,6 @@ public class PlayerSoundController : MonoBehaviour
             foreach (var par in parameters)
             {
                 instance.setParameterByName(par.name, par.value);
-                Debug.Log(par.name+":"+par.value);
                 //Debug.Log($"{par.name}:{par.value}");
             }
         }

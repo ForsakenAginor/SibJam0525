@@ -73,17 +73,19 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     void Update()
     {
         bool ceiling = Physics.Raycast(viewer.transform.position, Vector3.up, ceilingMinHeight);
-        if(Physics.Raycast(transform.position+Vector3.up*0.1f,Vector3.down, out RaycastHit ground, 0.2f))
+        if(Physics.Raycast(transform.TransformPoint(controller.center),Vector3.down, out RaycastHit ground, controller.height))
         {
+            
             floor = ground.collider;
-            if(speedPar>0 && Time.time-lastStepTime>(1/(speedPar+1)) && soundController != null)
+            if (speedPar > 0 && Time.time - lastStepTime > (1 / (speedPar + 1)) && soundController != null)
             {
                 lastStepTime = Time.time;
                 List<SoundEventParameter> parameters = new List<SoundEventParameter>();
                 if (floor != null)
                 {
+                    Debug.Log(floor);
                     Surface surf = floor.GetComponentInParent<Surface>();
-                    if(surf != null)
+                    if (surf != null)
                     {
                         SoundEventParameter soundEventParameter = new SoundEventParameter();
                         soundEventParameter.name = surfaceTypeParameterName;
@@ -91,14 +93,14 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
                         parameters.Add(soundEventParameter);
                     }
                 }
-                if(isRunning) soundController.PlaySound(runSound, transform.position, parameters.ToArray());
-                else if(isCrouching) soundController.PlaySound(crouchSound, transform.position, parameters.ToArray());
+                if (isCrouching) { soundController.PlaySound(crouchSound, transform.position, parameters.ToArray());  }
+                else if (isRunning) soundController.PlaySound(runSound, transform.position, parameters.ToArray());
                 else soundController.PlaySound(walkSound, transform.position, parameters.ToArray());
             }
         }
         if (jump && controller.isGrounded && !ceiling)
         {
-            moveDemand.y = jumpHeight; Debug.Log($"jump:{moveDemand.y}");
+            moveDemand.y = jumpHeight;
             onJump?.Invoke();
             if(soundController != null)
             {
@@ -110,6 +112,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
 
         }
         if (ceiling) crouch = true;
+        
 
         if (controller.isGrounded)
         {
@@ -134,6 +137,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
                     soundController.PlaySound(landSound, transform.position, parameters.ToArray() );
                 }
             }
+            
             move = (Vector3.ClampMagnitude(transform.TransformDirection(moveDemand).With(y: 0), 1))
             * moveSpeed
             * (crouch ? crouchSpeedMult : 1)
@@ -147,7 +151,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         if (crouch)
         {
             controller.height = Mathf.Lerp(controller.height, defaultHeight * crouchMult, Time.deltaTime * 10);
-
+            
 
         }
         else controller.height = Mathf.Lerp(controller.height, defaultHeight, Time.deltaTime * 10);
