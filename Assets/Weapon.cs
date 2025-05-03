@@ -1,3 +1,4 @@
+using FMODUnity;
 using NSpace;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour, IWeapon
 {
+    [SerializeField] private EventReference _fireSound;
     [SerializeField] Transform muzzle;
 
     [SerializeField, Range(0,4)] float dispersion;
@@ -30,6 +32,7 @@ public class Weapon : MonoBehaviour, IWeapon
     // Start is called before the first frame update
     public void Fire()
     {
+        AudioManager.Instance.PlayOneShot(_fireSound, transform.position);
         Transform visual = null;
         if (visualPrefab)
         {

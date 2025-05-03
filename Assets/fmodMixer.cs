@@ -12,7 +12,7 @@ public class fmodMixer : MonoBehaviour
     [SerializeField] Slider sfxSlider;
     [SerializeField] string musicgrpname;
     [SerializeField] Slider musicSlider;
-    string masterBusString = "Bus:/";
+    string masterBusString = "bus:/"; 
     
     FMOD.Studio.Bus masterBus;
     FMOD.Studio.Bus sfxgrp;

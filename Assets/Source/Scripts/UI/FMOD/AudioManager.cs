@@ -1,7 +1,5 @@
+﻿using FMOD.Studio;
 using FMODUnity;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -19,5 +17,11 @@ public class AudioManager : MonoBehaviour
     public void PlayOneShot(EventReference sound, Vector3 position)
     {
         RuntimeManager.PlayOneShot(sound, position);
+    }
+
+    public void StopAllSounds()
+    {
+        RuntimeManager.StudioSystem.getBus("bus:/", out Bus masterBus);
+        masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }

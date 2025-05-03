@@ -16,7 +16,11 @@ public class EndgameAnimation : MonoBehaviour
         sequence.SetUpdate(true);
 
         _panel.Enable();
-        sequence.Append(_panel.transform.DOScale(Vector3.one, _duration).SetEase(Ease.Linear).OnComplete(() => AudioManager.Instance.PlayOneShot(_sound, transform.position)));
+        sequence.Append(_panel.transform.DOScale(Vector3.one, _duration).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                AudioManager.Instance.StopAllSounds();
+                AudioManager.Instance.PlayOneShot(_sound, transform.position);
+            }));
         sequence.AppendCallback(() => _button.Enable());
         sequence.Append(_button.transform.DOScale(Vector3.one, _duration).SetEase(Ease.Linear));
         sequence.OnComplete(() => _button.GetComponent<Button>().interactable = true);

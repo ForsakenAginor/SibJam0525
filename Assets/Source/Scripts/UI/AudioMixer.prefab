@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: {fileID: 8433511788789656845}
-  sfxgrpname: SoundFx
+  sfxgrpname: SFX
   sfxSlider: {fileID: 7495858635742266387}
   musicgrpname: Music
   musicSlider: {fileID: 3402955283992116420}

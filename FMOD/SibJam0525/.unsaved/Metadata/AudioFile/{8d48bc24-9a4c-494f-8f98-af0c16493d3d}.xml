@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8d48bc24-9a4c-494f-8f98-af0c16493d3d}">
+		<property name="assetPath">
+			<value>Player/footsteps/Footstep_Crouch_Tile2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.37498866213151927</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5a590b11-a1f9-4e13-80d4-a0adbd24e8ad}</destination>
+		</relationship>
+	</object>
+</objects>

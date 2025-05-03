@@ -605,6 +605,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed1ee3bb009ecd4ca9679bac07ebeaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: 422643200
+      Data2: 1134838563
+      Data3: 473446807
+      Data4: 1291756982
+    Path: event:/Ambients/Amb_Museum
   _exitButtons:
   - {fileID: 1204042328}
   - {fileID: 1557480251}
@@ -725,6 +732,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _escapeCollider: {fileID: 1063050493}
   _moneyBar: {fileID: 0}
+  _alertSound:
+    Guid:
+      Data1: 1368493300
+      Data2: 1226366693
+      Data3: -1121560925
+      Data4: 1756747125
+    Path: event:/AllarmLoop
   _escapeTime: 10
   _lootTime: 10
   _timerView: {fileID: 2057701410}
@@ -2654,6 +2668,7 @@ GameObject:
   - component: {fileID: 679934788}
   - component: {fileID: 679934786}
   - component: {fileID: 679934787}
+  - component: {fileID: 679934791}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2833,6 +2848,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &679934791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679934785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f81ee18e748e24ab13ab2b0e4f28f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!114 &691865892 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6739700586907640720, guid: 721faf52641d3c34cba62e13e765cb9c, type: 3}
@@ -4022,6 +4056,7 @@ GameObject:
   - component: {fileID: 1146161742}
   - component: {fileID: 1146161741}
   - component: {fileID: 1146161740}
+  - component: {fileID: 1146161743}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -4130,6 +4165,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146161738}
   m_CullTransparentMesh: 1
+--- !u!114 &1146161743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146161738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f81ee18e748e24ab13ab2b0e4f28f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!114 &1161923898 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2069360859315858310, guid: 721faf52641d3c34cba62e13e765cb9c, type: 3}
@@ -4197,6 +4251,7 @@ GameObject:
   - component: {fileID: 1204042330}
   - component: {fileID: 1204042329}
   - component: {fileID: 1204042328}
+  - component: {fileID: 1204042332}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -4305,6 +4360,25 @@ RectTransform:
   m_AnchoredPosition: {x: -10, y: -10}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 1, y: 1}
+--- !u!114 &1204042332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204042327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f81ee18e748e24ab13ab2b0e4f28f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!114 &1219308648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5627403997457321482, guid: 721faf52641d3c34cba62e13e765cb9c, type: 3}
@@ -4327,7 +4401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1228948094
+--- !u!114 &1228948099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4336,12 +4410,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 921596124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Script: {fileID: 11500000, guid: 81f81ee18e748e24ab13ab2b0e4f28f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.7372549, g: 0.48627454, b: 0.16470589, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
+  _sound:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!1001 &1234007313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5357,6 +5435,7 @@ GameObject:
   - component: {fileID: 1557480249}
   - component: {fileID: 1557480251}
   - component: {fileID: 1557480252}
+  - component: {fileID: 1557480253}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -5481,6 +5560,25 @@ MonoBehaviour:
   m_EffectColor: {r: 0.73333335, g: 0.48627454, b: 0.16470589, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &1557480253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557480247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f81ee18e748e24ab13ab2b0e4f28f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!114 &1578908245 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7827164010594081082, guid: 721faf52641d3c34cba62e13e765cb9c, type: 3}
@@ -6180,6 +6278,7 @@ GameObject:
   - component: {fileID: 1893041881}
   - component: {fileID: 1893041880}
   - component: {fileID: 1893041879}
+  - component: {fileID: 1893041882}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -6288,6 +6387,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893041877}
   m_CullTransparentMesh: 1
+--- !u!114 &1893041882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893041877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f81ee18e748e24ab13ab2b0e4f28f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!1 &1904156113
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,7 +7455,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5259214191766541346, guid: 2da353a9bfa96c047b70f6e46179e123, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1228948094}
+      addedObject: {fileID: 1228948099}
   m_SourcePrefab: {fileID: 100100000, guid: 2da353a9bfa96c047b70f6e46179e123, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

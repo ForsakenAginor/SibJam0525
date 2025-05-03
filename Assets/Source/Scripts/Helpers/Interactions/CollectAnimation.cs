@@ -59,7 +59,7 @@ public class CollectAnimation : MonoBehaviour
         );
 
         _animationSequence.Join(
-            transform.DOMoveY(transform.position.y + 0.75f, _scaleDuration)
+            transform.DOMoveY(transform.position.y + 0.5f, _scaleDuration)
                 .SetEase(Ease.InQuad)
         );
 
