@@ -2,12 +2,12 @@ using FMODUnity;
 using NSpace;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour, IWeapon
 {
     [SerializeField] private EventReference _fireSound;
+    [SerializeField] private Transform _target;
     [SerializeField] Transform muzzle;
 
     [SerializeField, Range(0,4)] float dispersion;
@@ -39,6 +39,7 @@ public class Weapon : MonoBehaviour, IWeapon
             visual = Instantiate(visualPrefab);
         }
         onShot?.Invoke();
+        muzzle.LookAt(_target.position);
         projectiles.Add(new Projectile(muzzle.position, muzzle.forward, speed, range, BulletHit, visual));
         if (!isUpdate) StartCoroutine(updateProjectiles());
         

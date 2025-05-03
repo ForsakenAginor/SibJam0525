@@ -39,7 +39,7 @@ public class Atack : IState
         if (host.enemies.Count <= 0 || weapon==null) { complete = true; return; }
         if (Time.time - lastShotTime < fireRate)
         {
-            host.AimAt(host.enemies[0].entity.spotPoints[0].position);
+            host.AimAt(host.enemies[0].entity.spotPoints[1].position);
         }
         else
         {

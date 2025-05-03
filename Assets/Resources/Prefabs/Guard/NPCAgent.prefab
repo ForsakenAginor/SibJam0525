@@ -354,6 +354,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeb6175882996f4791f08c932f3fa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: -176347655
+      Data2: 1332953441
+      Data3: 2094893216
+      Data4: -404937171
+    Path: event:/Enemy/DogHowl_Short
   _enemyAnimationController: {fileID: 3979085175338688521}
   _setupNormal:
     perception: 1.5

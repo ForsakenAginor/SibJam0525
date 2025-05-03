@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using NSpace;
 using NSpace.AI;
+using FMODUnity;
 
 public class NPCController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class NPCController : MonoBehaviour
         public float aimSpeed;
     }
 
+    [SerializeField] private EventReference _sound;
     [SerializeField] private EnemyAnimationController _enemyAnimationController;
     [SerializeField] private NPCSetup _setupNormal;
     [SerializeField] private NPCSetup _setupAlarm;
@@ -100,8 +102,9 @@ public class NPCController : MonoBehaviour
     {
         isRunning = run;
         agent.speed = isRunning ? currentSetup.runSpeed : currentSetup.walkSpeed;
-    
-        if(isRunning)
+        AudioManager.Instance.PlayOneShot(_sound, transform.position);
+
+        if (isRunning)
             _enemyAnimationController.Run();
         else
             _enemyAnimationController.Walk();
