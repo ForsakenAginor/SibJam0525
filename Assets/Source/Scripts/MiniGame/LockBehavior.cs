@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Script : MonoBehaviour 
+public class LockBehavior : MonoBehaviour
 {
-
-
     private Camera mainCamera;
     [SerializeField] private LayerMask movableMask;
     public float moveDistance = 2f;
     public float moveSpeed = 2f;
-    public int maxSelectedObjects = 3; 
+    public int maxSelectedObjects = 3;
 
     private List<GameObject> selectedObjects = new List<GameObject>();
     private Vector3[] originalPositions;
@@ -21,41 +19,38 @@ public class Script : MonoBehaviour
     [SerializeField] private GameObject gameObject3;
 
     [SerializeField] private GameObject Locker;
-   
+
     private List<GameObject> generatedSequence = new List<GameObject>();
-    
+
 
     private void Start()
     {
-        
+
         mainCamera = Camera.main;
         gameObjects = new GameObject[] { gameObject1, gameObject2, gameObject3 };
-        originalPositions = new Vector3[gameObjects.Length]; 
+        originalPositions = new Vector3[gameObjects.Length];
         for (int i = 0; i < gameObjects.Length; i++)
         {
-            originalPositions[i] = gameObjects[i].transform.position; 
+            originalPositions[i] = gameObjects[i].transform.position;
         }
-        GenerateNewSequence(); 
+        GenerateNewSequence();
     }
-    
+
 
     private void Update()
     {
 
         SelectObject();
-        
-        
+
+
     }
 
     private void GenerateNewSequence()
     {
         generatedSequence = GenerateRandomSequence(maxSelectedObjects);
 
-        
-        foreach (GameObject obj in generatedSequence)
-        {
-            Debug.Log("Сгенерированный объект: " + obj.name);
-        }
+
+
     }
 
     private List<GameObject> GenerateRandomSequence(int length)
@@ -86,11 +81,11 @@ public class Script : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100, movableMask))
         {
             GameObject selectedObject = hit.collider.gameObject;
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 if (!selectedObjects.Contains(selectedObject))
                 {
-                    
+
 
                     if (selectedObjects.Count <= maxSelectedObjects)
                     {
@@ -100,29 +95,29 @@ public class Script : MonoBehaviour
                         MoveObjectUp(selectedObject);
                     }
 
-                    
 
-                
+
+
                     if (selectedObjects.Count == maxSelectedObjects)
-                    { 
+                    {
 
                         CheckSequences();
                     }
                 }
 
-            }      
+            }
         }
     }
 
     private void MoveObjectUp(GameObject obj)
     {
         Vector3 targetPosition = obj.transform.position + Vector3.up * moveDistance;
-     
+
 
         while (Vector3.Distance(obj.transform.position, targetPosition) > 0.01f)
         {
             obj.transform.position = Vector3.MoveTowards(obj.transform.position, targetPosition, moveSpeed * Time.deltaTime);
-            
+
         }
 
         obj.transform.position = targetPosition;
@@ -135,14 +130,14 @@ public class Script : MonoBehaviour
             Locker.transform.position = Vector3.MoveTowards(Locker.transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         }
-        
+
     }
 
 
     private void CheckSequences()
     {
         bool sequencesMatch = true;
-        
+
         for (int i = 0; i < maxSelectedObjects; i++)
         {
             if (selectedObjects[i] != generatedSequence[i])
@@ -151,21 +146,21 @@ public class Script : MonoBehaviour
                 break;
             }
         }
-        
+
 
         if (sequencesMatch)
         {
             Debug.Log("Получилось! Последовательности совпадают.");
             UnLock();
-            ResetSelectedObjects(); 
-            
+            ResetSelectedObjects();
+
         }
         else
         {
             Debug.Log("Не совпадает. Попробуйте еще раз.");
-            
-            ResetSelectedObjects(); 
-            
+
+            ResetSelectedObjects();
+
         }
     }
 
@@ -173,20 +168,14 @@ public class Script : MonoBehaviour
     {
         foreach (GameObject obj in selectedObjects)
         {
-            
+
             int index = System.Array.IndexOf(gameObjects, obj);
             if (index >= 0 && index < originalPositions.Length)
             {
                 obj.transform.position = originalPositions[index];
             }
-        }  
+        }
         selectedObjects.Clear();
-        
+
     }
-    
 }
-
-
-
-
-
