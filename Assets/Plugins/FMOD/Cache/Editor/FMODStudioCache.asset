@@ -139,7 +139,9 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
+
   lastModified: 638818771644237012
+
   FileSizes:
   - Name: Desktop
     Value: 143808
@@ -216,7 +218,9 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+
   lastModified: 638818771642865879
+
   FileSizes:
   - Name: Desktop
     Value: 2120
@@ -236,7 +240,9 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+
   lastModified: 638818771642907433
+
   FileSizes:
   - Name: Desktop
     Value: 1320
