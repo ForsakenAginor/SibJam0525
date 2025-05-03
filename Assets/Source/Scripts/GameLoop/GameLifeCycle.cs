@@ -16,6 +16,9 @@ public class GameLifeCycle : MonoBehaviour
     [SerializeField] private SwitchableElement _allertOff;
     [SerializeField] private SwitchableElement _allertOn;
 
+    [Header("Tutorial")]
+    [SerializeField] private Tutorial _tutorial;
+
     private Resource _money;
     private GameStage _stage;
 
@@ -56,6 +59,11 @@ public class GameLifeCycle : MonoBehaviour
 
         _allertOff.Disable();
         _allertOn.Enable();
+
+        if (_money.Amount != _money.Maximum)
+            _tutorial.PlayThreatment();
+        else
+            _tutorial.PlayComplete();
 
         _stage = GameStage.Escape;
         //_moneyBar.Disable();
