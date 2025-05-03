@@ -19,7 +19,12 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     [SerializeField] float sprintSpeedMult;
     [SerializeField] float crouchMult;
     [SerializeField] Transform viewer;
+    [SerializeField] float ceilingMinHeight;
+    [SerializeField] float inertia;
     [SerializeField] UnityEngine.Events.UnityEvent<float> onMove;
+
+    public System.Action onJump;
+    public System.Action onLand;
 
 
     CharacterController controller;
@@ -30,6 +35,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     Vector3 move;
     float viewAngle;
     bool jump;
+    bool inAir;
     bool crouch;
     bool sprint;
     float defaultHeight;
@@ -56,20 +62,29 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     // Update is called once per frame
     void Update()
     {
-        bool ceiling = Physics.Raycast(viewer.transform.position, Vector3.up, 0.5f);
+        bool ceiling = Physics.Raycast(viewer.transform.position, Vector3.up, ceilingMinHeight);
+        if(Physics.Raycast(transform.position+Vector3.up*0.1f,Vector3.down, out RaycastHit ground, 0.2f))
+        {
+            floor = ground.collider;
+        }
         if (jump && controller.isGrounded && !ceiling)
         {
             moveDemand.y = jumpHeight; Debug.Log($"jump:{moveDemand.y}");
+            onJump?.Invoke();
             jump = false;
+            
         }
         if (ceiling) crouch = true;
+
         if (controller.isGrounded)
         {
-            move = Vector3.Lerp(move, (Vector3.ClampMagnitude(transform.TransformDirection(moveDemand).With(y: 0), 1))
+            if (inAir) { inAir = false; onLand?.Invoke(); }
+            move = (Vector3.ClampMagnitude(transform.TransformDirection(moveDemand).With(y: 0), 1))
             * moveSpeed
             * (crouch ? crouchSpeedMult : 1)
-            * (sprint && _sprintController.CanSprint ? sprintSpeedMult : 1), Time.deltaTime * 5);
+            * (sprint && _sprintController.CanSprint ? sprintSpeedMult : 1);
         }
+        
         controller.Move((move + Vector3.up * moveDemand.y) * Time.deltaTime);
         controller.transform.rotation *= Quaternion.AngleAxis(lookDemand.x * lookSpeed * Time.deltaTime, Vector3.up);
         viewAngle = Mathf.Clamp(viewAngle - lookDemand.y * lookSpeed * Time.deltaTime, viewLimits.x, viewLimits.y); ;
@@ -77,6 +92,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         if (crouch)
         {
             controller.height = Mathf.Lerp(controller.height, defaultHeight * crouchMult, Time.deltaTime * 10);
+
 
         }
         else controller.height = Mathf.Lerp(controller.height, defaultHeight, Time.deltaTime * 10);
@@ -86,12 +102,21 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
             moveDemand.y += grav * Time.deltaTime;
         }
         else moveDemand.y = 0;
+       
 
         if (move.sqrMagnitude > 0)
         {
-            onMove?.Invoke(move.magnitude / moveSpeed);
+            speedPar = move.magnitude / moveSpeed;
+            onMove?.Invoke(speedPar);
+
         }
+        else speedPar = 0;
     }
+
+    public float speedPar { get; private set; }
+    public Collider floor { get; private set; }
+    public bool isRunning => sprint;
+    public bool isCrouching => crouch;
 
     public void Init(SprintController sprintController)
     {

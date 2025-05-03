@@ -46,7 +46,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a66e30c03a70f40a17368cb4a049d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: {x: 0.01, y: 0.002}
-  speed: 2
+  scale: {x: 0.005, y: 0.001}
+  speed: 5
 --- !u!114 &8263077282004317362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 20
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 7410234098190510352}
   - component: {fileID: 8121773943372261060}
   - component: {fileID: 8250342125231057202}
+  - component: {fileID: 6388341579089505803}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -445,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  lookSpeed: 90
+  lookSpeed: 15
   jumpHeight: 5
   viewLimits: {x: -80, y: 80}
   grav: -12
@@ -453,6 +454,8 @@ MonoBehaviour:
   sprintSpeedMult: 3
   crouchMult: 0.6
   viewer: {fileID: 5952612423164290911}
+  ceilingMinHeight: 0.3
+  inertia: 0
   onMove:
     m_PersistentCalls:
       m_Calls:
@@ -510,6 +513,53 @@ MonoBehaviour:
   - {fileID: 5131286034785150944}
   - {fileID: 351646690616998490}
   <side>k__BackingField: 1
+--- !u!114 &6388341579089505803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363518183824496243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3866cca03882af469d17b2e5d46e895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkEvent:
+    Guid:
+      Data1: 863835552
+      Data2: 1340359827
+      Data3: 1245870013
+      Data4: 77558742
+    Path: event:/Player/Footsteps/Footstep_Walk
+  runEvent:
+    Guid:
+      Data1: -1893518612
+      Data2: 1228872333
+      Data3: -730169196
+      Data4: -1600763506
+    Path: event:/Player/Footsteps/Footstep_Run
+  crouchEvent:
+    Guid:
+      Data1: -1794249947
+      Data2: 1146616949
+      Data3: -1097708920
+      Data4: -625895913
+    Path: event:/Player/Footsteps/Footstep_Crouch
+  jumpEvent:
+    Guid:
+      Data1: 1021721565
+      Data2: 1170435251
+      Data3: -1856073577
+      Data4: 559397733
+    Path: event:/Player/Player_Jump
+  landEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &8958014894666172344
 GameObject:
   m_ObjectHideFlags: 0
