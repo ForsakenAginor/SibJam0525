@@ -1,7 +1,6 @@
 using Assets.Scripts.General;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BootsTrap : MonoBehaviour
 {

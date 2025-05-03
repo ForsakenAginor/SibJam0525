@@ -31,12 +31,12 @@ namespace Assets.Scripts.General
             _blackScreenImage.color = Color.black;
         }
 
-        public void LoadScene(string sceneName)
+        public void LoadScene(string sceneName, bool canLoadInPause = false)
         {
             if (string.IsNullOrEmpty(sceneName))
                 throw new ArgumentNullException(nameof(sceneName));
 
-            _blackScreenImage.DOFade(1f, _animationDuration).OnComplete(() => StartCoroutine(LoadAsyncScene(sceneName)));
+            _blackScreenImage.DOFade(1f, _animationDuration).SetUpdate(canLoadInPause).OnComplete(() => StartCoroutine(LoadAsyncScene(sceneName)));
         }
 
         public void FadeOut()

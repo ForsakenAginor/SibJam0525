@@ -90,7 +90,7 @@ public class GameRoot : MonoBehaviour
 
     private void OnRestartButtonClick()
     {
-        SceneChangerSingleton.Instance.LoadScene(Scenes.Game.ToString());
+        SceneChangerSingleton.Instance.LoadScene(Scenes.Game.ToString(), true);
     }
 
     private void OnPlayerWon()
