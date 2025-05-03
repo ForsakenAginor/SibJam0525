@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="EncodableAsset" id="{0c3ecefe-6040-4ab1-8a52-b04bb0ea9289}">
 		<property name="assetPath">
-			<value>Jump/</value>
+			<value>Player/Jump/</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{5a590b11-a1f9-4e13-80d4-a0adbd24e8ad}</destination>
