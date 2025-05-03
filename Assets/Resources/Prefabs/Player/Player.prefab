@@ -444,6 +444,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8873ea6ec30fe3f40978dc571f38419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundWalk:
+    Guid:
+      Data1: 863835552
+      Data2: 1340359827
+      Data3: 1245870013
+      Data4: 77558742
+    Path: event:/Player/Footsteps/Footstep_Walk
+  _soundSprint:
+    Guid:
+      Data1: -1893518612
+      Data2: 1228872333
+      Data3: -730169196
+      Data4: -1600763506
+    Path: event:/Player/Footsteps/Footstep_Run
+  _soundCrouch:
+    Guid:
+      Data1: -1794249947
+      Data2: 1146616949
+      Data3: -1097708920
+      Data4: -625895913
+    Path: event:/Player/Footsteps/Footstep_Crouch
   moveSpeed: 3
   lookSpeed: 90
   jumpHeight: 5

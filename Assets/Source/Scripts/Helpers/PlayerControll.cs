@@ -1,6 +1,7 @@
 using UnityEngine;
 using NSpace;
 using System;
+using FMODUnity;
 
 public interface ISprinter
 {
@@ -10,6 +11,9 @@ public interface ISprinter
 [RequireComponent(typeof(CharacterController))]
 public class PlayerControll : MonoBehaviour, IEntity, ISprinter
 {
+    [SerializeField] private EventReference _soundWalk;
+    [SerializeField] private EventReference _soundSprint;
+    [SerializeField] private EventReference _soundCrouch;
     [SerializeField] float moveSpeed;
     [SerializeField] float lookSpeed;
     [SerializeField] float jumpHeight;
@@ -59,7 +63,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         bool ceiling = Physics.Raycast(viewer.transform.position, Vector3.up, 0.5f);
         if (jump && controller.isGrounded && !ceiling)
         {
-            moveDemand.y = jumpHeight; Debug.Log($"jump:{moveDemand.y}");
+            moveDemand.y = jumpHeight;
             jump = false;
         }
         if (ceiling) crouch = true;
@@ -77,7 +81,6 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         if (crouch)
         {
             controller.height = Mathf.Lerp(controller.height, defaultHeight * crouchMult, Time.deltaTime * 10);
-
         }
         else controller.height = Mathf.Lerp(controller.height, defaultHeight, Time.deltaTime * 10);
         viewer.transform.localPosition = controller.center + Vector3.up * (controller.height / 2 - 0.1f);

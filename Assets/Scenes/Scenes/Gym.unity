@@ -629,7 +629,7 @@ MonoBehaviour:
   _playerStaminaText: {fileID: 2057701412}
   _playerMoneyText: {fileID: 2057701411}
   _maxHealth: 100
-  _maxStamina: 1000
+  _maxStamina: 100
   _maxMoney: 10000
   _playerInitializer: {fileID: 1368389083}
   _loot:
@@ -716,6 +716,7 @@ Transform:
   - {fileID: 2057701406}
   - {fileID: 1368389085}
   - {fileID: 1599191260}
+  - {fileID: 1849639541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &94354757
@@ -732,13 +733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _escapeCollider: {fileID: 1063050493}
   _moneyBar: {fileID: 0}
-  _alertSound:
-    Guid:
-      Data1: 1368493300
-      Data2: 1226366693
-      Data3: -1121560925
-      Data4: 1756747125
-    Path: event:/AllarmLoop
+  _alertSound: {fileID: 1849639540}
   _escapeTime: 30
   _lootTime: 30
   _timerView: {fileID: 2057701410}
@@ -4834,6 +4829,8 @@ GameObject:
   - component: {fileID: 1368389085}
   - component: {fileID: 1368389083}
   - component: {fileID: 1368389084}
+  - component: {fileID: 1368389086}
+  - component: {fileID: 1368389087}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4856,6 +4853,8 @@ MonoBehaviour:
   _controller: {fileID: 333879412}
   _sprintController: {fileID: 1368389084}
   _playerHealth: {fileID: 1749141954}
+  _healtSoundController: {fileID: 1368389087}
+  _staminaSoundController: {fileID: 1368389086}
 --- !u!114 &1368389084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4868,7 +4867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134a09dcd6bb40246a48c95322b61295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _drainValue: 5
+  _drainValue: 10
   _recoveryValue: 5
   _threshold: 5
 --- !u!4 &1368389085
@@ -4886,6 +4885,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 94354756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1368389086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368389082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886d6a7630864374c9949ae7d2250085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaSoundEvent:
+    Guid:
+      Data1: 2112218848
+      Data2: 1230055795
+      Data3: 1246423473
+      Data4: -220121459
+    Path: event:/Player/Player_Breath
+  _player: {fileID: 1749141955}
+  _parameterName: Stamina
+--- !u!114 &1368389087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368389082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886d6a7630864374c9949ae7d2250085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaSoundEvent:
+    Guid:
+      Data1: -288803607
+      Data2: 1269055053
+      Data3: -855809133
+      Data4: 845099774
+    Path: event:/Player/Player_Heartbeat
+  _player: {fileID: 1749141955}
+  _parameterName: Health
 --- !u!114 &1372229817 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2876153696738309924, guid: 721faf52641d3c34cba62e13e765cb9c, type: 3}
@@ -6046,6 +6087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270eedcf866dbdc4eb2ef29f4e3a2e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1749141955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7735641207435439004, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
+  m_PrefabInstance: {fileID: 1749141953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749933465
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,6 +6292,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03ecfa1587039b47a36deaabf7f3ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1849639539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849639541}
+  - component: {fileID: 1849639540}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1849639540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849639539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae0df6de4f6c514d886f9dbd9edbed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _alertSoundEvent:
+    Guid:
+      Data1: 1368493300
+      Data2: 1226366693
+      Data3: -1121560925
+      Data4: 1756747125
+    Path: event:/AllarmLoop
+--- !u!4 &1849639541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849639539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 94354756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1861789331 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6258143978651475434, guid: 721faf52641d3c34cba62e13e765cb9c, type: 3}

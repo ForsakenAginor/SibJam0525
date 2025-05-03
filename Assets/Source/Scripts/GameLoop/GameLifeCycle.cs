@@ -6,7 +6,7 @@ public class GameLifeCycle : MonoBehaviour
 {
     [SerializeField] private LevelEscape _escapeCollider;
     [SerializeField] private SwitchableElement _moneyBar;
-    [SerializeField] private EventReference _alertSound;
+    [SerializeField] private AlertSoundController _alertSound;
 
     [Header("Time logic")]
     [SerializeField] private float _escapeTime;
@@ -61,8 +61,8 @@ public class GameLifeCycle : MonoBehaviour
 
         _allertOff.Disable();
         _allertOn.Enable();
-        AudioManager.Instance.StopAllSounds();
-        AudioManager.Instance.PlayOneShot(_alertSound, transform.position);
+        //AudioManager.Instance.StopAllSounds();
+        _alertSound.Play();
 
 
         if (_money.Amount != _money.Maximum)
