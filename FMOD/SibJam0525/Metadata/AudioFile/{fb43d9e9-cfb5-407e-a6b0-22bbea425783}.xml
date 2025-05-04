@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fb43d9e9-cfb5-407e-a6b0-22bbea425783}">
+		<property name="assetPath">
+			<value>VO/3.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>7.0791836734693874</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5a590b11-a1f9-4e13-80d4-a0adbd24e8ad}</destination>
+		</relationship>
+	</object>
+</objects>
