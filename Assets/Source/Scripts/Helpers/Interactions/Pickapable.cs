@@ -38,6 +38,6 @@ public class Pickapable : InteractableBase
     public override void Focus(IInteractor actor)
     {
         base.Focus(actor);
-        _pickapableOverlay.SetText(_value);
+        _pickapableOverlay.SetText(Value);
     }
 }

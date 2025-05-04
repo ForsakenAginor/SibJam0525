@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameLifeCycle : MonoBehaviour
 {
+    [SerializeField] private NPCController[] _enemies;
     [SerializeField] private LevelEscape _escapeCollider;
     [SerializeField] private SwitchableElement _moneyBar;
     [SerializeField] private AlertSoundController _alertSound;
@@ -63,6 +64,9 @@ public class GameLifeCycle : MonoBehaviour
         _allertOn.Enable();
         //AudioManager.Instance.StopAllSounds();
         _alertSound.Play();
+
+        foreach (var enemy in _enemies)
+            enemy.SetAlarm(true);
 
 
         if (_money.Amount != _money.Maximum)
