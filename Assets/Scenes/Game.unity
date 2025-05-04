@@ -2440,7 +2440,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2174744722277706335, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
   m_PrefabInstance: {fileID: 1749141953}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1749141956}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8873ea6ec30fe3f40978dc571f38419d, type: 3}
@@ -9774,15 +9774,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9aa170ef1b45de4fab8963a09c43c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intro: {fileID: 8300000, guid: 3a7bdae0133d9bd47b9fb1ae32c63cf0, type: 3}
-  _2ndIntro: {fileID: 8300000, guid: f09725569bf75e649bb5a6b07ba5a5c7, type: 3}
-  _threatment: {fileID: 8300000, guid: fbab81b5807445f40a09e7ba49fad953, type: 3}
-  _complete: {fileID: 8300000, guid: d98c20710ee1d264f973c64cce6b87a2, type: 3}
+  _intro:
+    Guid:
+      Data1: 1258201202
+      Data2: 1286489200
+      Data3: -1451754879
+      Data4: 640173613
+    Path: event:/VO/BabaYagaLine4
+  _2ndIntro:
+    Guid:
+      Data1: -333394799
+      Data2: 1145407221
+      Data3: -1504208748
+      Data4: 466549059
+    Path: event:/VO/BabaYagaLine3
+  _threatment:
+    Guid:
+      Data1: 1958280569
+      Data2: 1099687083
+      Data3: -4706626
+      Data4: 1905809214
+    Path: event:/VO/BabaYagaLine2
+  _complete:
+    Guid:
+      Data1: -247744803
+      Data2: 1240827889
+      Data3: 1944135604
+      Data4: 786032228
+    Path: event:/VO/BabaYagaLine1
   _slider: {fileID: 88414369}
   _message: {fileID: 322625094}
-  _source: {fileID: 2123365018}
-  _timeBeforeFirstMessage: 5
-  _timeBeforeSecondMessage: 15
+  _timeBeforeFirstMessage: 2
+  _timeBeforeSecondMessage: 10
 --- !u!1 &1601570137
 GameObject:
   m_ObjectHideFlags: 0
@@ -10402,6 +10425,10 @@ PrefabInstance:
       propertyPath: scale.y
       value: 0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 6479050045354150686, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 1749141956}
     - target: {fileID: 7363518183824496243, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10456,7 +10483,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8121773943372261060, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
   m_PrefabInstance: {fileID: 1749141953}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1749141956}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 270eedcf866dbdc4eb2ef29f4e3a2e10, type: 3}
@@ -10465,6 +10492,11 @@ MonoBehaviour:
 --- !u!4 &1749141955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7735641207435439004, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
+  m_PrefabInstance: {fileID: 1749141953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1749141956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7363518183824496243, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
   m_PrefabInstance: {fileID: 1749141953}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749933465
