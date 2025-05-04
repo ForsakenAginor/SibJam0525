@@ -1468,6 +1468,7 @@ GameObject:
   - component: {fileID: 7120478018862274304}
   - component: {fileID: 3447235967485830936}
   - component: {fileID: 3089853029944279722}
+  - component: {fileID: 1233805713382566078}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1592,6 +1593,32 @@ MonoBehaviour:
   m_EffectColor: {r: 0.7372549, g: 0.48235297, b: 0.16862746, a: 1}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1233805713382566078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5259214191766541346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f81ee18e748e24ab13ab2b0e4f28f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound:
+    Guid:
+      Data1: -1823722179
+      Data2: 1298785296
+      Data3: 1802651536
+      Data4: 1997172522
+    Path: event:/UI/UI_Enter
+  _switch:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!1 &5289655755501387655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,9 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: {fileID: 8433511788789656845}
-  sfxgrpname: SFX
   sfxSlider: {fileID: 7495858635742266387}
-  musicgrpname: Music
   musicSlider: {fileID: 3402955283992116420}
 --- !u!114 &3697553526941631574
 MonoBehaviour:

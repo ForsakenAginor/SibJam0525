@@ -2700,18 +2700,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sound:
     Guid:
+      Data1: -1823722179
+      Data2: 1298785296
+      Data3: 1802651536
+      Data4: 1997172522
+    Path: event:/UI/UI_Enter
+  _switch:
+    Guid:
       Data1: -759327363
       Data2: 1267288552
       Data3: -1431982706
       Data4: -948337625
     Path: event:/UI/UI_Switch
-  _switch:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
 --- !u!114 &5553413445198245246
 MonoBehaviour:
   m_ObjectHideFlags: 0
