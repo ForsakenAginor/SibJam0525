@@ -13,6 +13,11 @@ public class PlayerHealth : MonoBehaviour, IDamageble
 
     public void TakeDamage(int value)
     {
-        _health.Spent(value);
+        float chanceToAvoidDamage = 1 - (float)_health.Amount / _health.Maximum;
+        float seed = UnityEngine.Random.Range(0f, 1f);
+        Debug.Log($"{chanceToAvoidDamage} {seed}");
+
+        if (seed > chanceToAvoidDamage)
+            _health.Spent(value);
     }
 }
