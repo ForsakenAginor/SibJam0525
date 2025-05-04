@@ -233,6 +233,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-4543110977177485054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/BabaYagaLine2
+  m_EditorClassIdentifier: 
+  Path: event:/VO/BabaYagaLine2
+  Guid:
+    Data1: -951877442
+    Data2: 1078628327
+    Data3: -1608860750
+    Data4: -1377941826
+  Banks:
+  - {fileID: 4794285306304340077}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6397
 --- !u!114 &-4038054381175638201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +371,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 800
+--- !u!114 &-500188344252951389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/BabaYagaLine1
+  m_EditorClassIdentifier: 
+  Path: event:/VO/BabaYagaLine1
+  Guid:
+    Data1: -179916245
+    Data2: 1209590663
+    Data3: -427403593
+    Data4: 325778544
+  Banks:
+  - {fileID: 4794285306304340077}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3575
 --- !u!114 &-344734430907251650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,12 +486,17 @@ MonoBehaviour:
   - {fileID: -6152313516597717470}
   - {fileID: 7623582461671547013}
   - {fileID: 9024112185220712483}
+  - {fileID: -500188344252951389}
+  - {fileID: 7017511840608894836}
+  - {fileID: 6525118099351040184}
+  - {fileID: 3947613505310474231}
+  - {fileID: -4543110977177485054}
   EditorParameters: []
   MasterBanks:
   - {fileID: 911644263046371540}
   StringsBanks:
   - {fileID: 4242845251192061003}
-  cacheTime: 638819598565638309
+  cacheTime: 638819806117899252
   cacheVersion: 131591
 --- !u!114 &911644263046371540
 MonoBehaviour:
@@ -454,7 +513,7 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638819543925285737
+  lastModified: 638819806113790279
   FileSizes:
   - Name: Desktop
     Value: 2962
@@ -553,7 +612,7 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638818942101117483
+  lastModified: 638819806113837085
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -614,6 +673,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &3947613505310474231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/BabaYagaLine4
+  m_EditorClassIdentifier: 
+  Path: event:/VO/BabaYagaLine4
+  Guid:
+    Data1: 1725025468
+    Data2: 1340717788
+    Data3: 756425388
+    Data4: 1855386670
+  Banks:
+  - {fileID: 4794285306304340077}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4124
 --- !u!114 &4186323329931258089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,10 +743,10 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638819598565458785
+  lastModified: 638819806113815841
   FileSizes:
   - Name: Desktop
-    Value: 2460
+    Value: 2664
   Exists: 1
 --- !u!114 &4556277271740156284
 MonoBehaviour:
@@ -701,10 +787,10 @@ MonoBehaviour:
   Path: FMOD/SibJam0525/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638819598565638309
+  lastModified: 638819806117899252
   FileSizes:
   - Name: Desktop
-    Value: 2651680
+    Value: 2953184
   Exists: 1
 --- !u!114 &5082572190472698327
 MonoBehaviour:
@@ -781,6 +867,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 750
+--- !u!114 &6525118099351040184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Player_HitBody
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Player_HitBody
+  Guid:
+    Data1: 136422757
+    Data2: 1195264215
+    Data3: -109946950
+    Data4: -612417092
+  Banks:
+  - {fileID: 4794285306304340077}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 250
+--- !u!114 &7017511840608894836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/BabaYagaLine3
+  m_EditorClassIdentifier: 
+  Path: event:/VO/BabaYagaLine3
+  Guid:
+    Data1: -414592940
+    Data2: 1129405315
+    Data3: 1209347254
+    Data4: 1692468000
+  Banks:
+  - {fileID: 4794285306304340077}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7035
 --- !u!114 &7623582461671547013
 MonoBehaviour:
   m_ObjectHideFlags: 0
