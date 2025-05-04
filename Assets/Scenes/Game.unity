@@ -10453,7 +10453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[F]'
+  m_text: "[\u041B\u041A\u041C]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09ff9d852226f4f4ca2c42e60c411d54, type: 2}
   m_sharedMaterial: {fileID: 2630052842671569096, guid: 09ff9d852226f4f4ca2c42e60c411d54, type: 2}

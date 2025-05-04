@@ -152,7 +152,7 @@ public partial class @ControllsBase: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d928c6fa-4d6b-4574-b46b-6b757e80747f"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -163,7 +163,7 @@ public partial class @ControllsBase: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d4db5c27-ee09-4a3d-bd30-e1523f7ad88e"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
