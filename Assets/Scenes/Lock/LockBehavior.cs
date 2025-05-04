@@ -5,8 +5,6 @@ using UnityEngine;
 public class LockBehavior : MonoBehaviour
 {
     private Camera mainCamera;
-    [SerializeField] private LayerMask movableMask;
-    [SerializeField] private LayerMask movableMask2;
     public float moveDistance = 2f;
     public float moveSpeed = 2f;
     public int maxSelectedObjects = 3;
@@ -219,12 +217,12 @@ public class LockBehavior : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            currentHighlightedIndex = (currentHighlightedIndex + 1) % gameObjects.Length; // Перемещение вправо
+            currentHighlightedIndex = (currentHighlightedIndex + 1) % gameObjects.Length; 
             HighlightCurrentObject();
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            currentHighlightedIndex = (currentHighlightedIndex - 1 + gameObjects.Length) % gameObjects.Length; // Перемещение влево
+            currentHighlightedIndex = (currentHighlightedIndex - 1 + gameObjects.Length) % gameObjects.Length; 
             HighlightCurrentObject();
         }
     }
@@ -248,7 +246,7 @@ public class LockBehavior : MonoBehaviour
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null)
         {
-            renderer.material.color = Color.blue; // Измените цвет на желаемый
+            renderer.material.color = Color.blue; 
         }
     }
 
@@ -258,7 +256,7 @@ public class LockBehavior : MonoBehaviour
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null)
         {
-            renderer.material.color = Color.white; // Вернуть к исходному цвету
+            renderer.material.color = Color.white; 
         }
     }
 
