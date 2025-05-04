@@ -131,6 +131,6 @@ public class GameRoot : MonoBehaviour
     private void OnPlayButtonClick()
     {
         AudioManager.Instance.StopAllSounds();
-        SceneChangerSingleton.Instance.LoadScene(Scenes.Menu.ToString());
+        SceneChangerSingleton.Instance.LoadScene(Scenes.Menu.ToString(), true);
     }
 }
