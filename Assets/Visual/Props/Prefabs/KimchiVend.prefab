@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 6118676954834501422}
   - component: {fileID: 4432972061412375250}
   - component: {fileID: 4649784239401136912}
+  - component: {fileID: 6062752773102294712}
   m_Layer: 0
   m_Name: KimchiVend
   m_TagString: Untagged
@@ -310,6 +311,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3192634176875313496, guid: 3c3fe03a475dd8e4880523e9dca73fd2, type: 3}
+--- !u!114 &6062752773102294712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6621822625248439221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 874757999
+      Data2: 1274127073
+      Data3: -699096176
+      Data4: 179579458
+    Path: event:/Vendingmachine
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 5
 --- !u!1001 &5856372053771930940
 PrefabInstance:
   m_ObjectHideFlags: 0
