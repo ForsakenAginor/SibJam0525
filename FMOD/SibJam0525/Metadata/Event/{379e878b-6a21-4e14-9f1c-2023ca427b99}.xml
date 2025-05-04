@@ -104,6 +104,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{b987364d-3717-4931-aa34-259e4098fb7c}">
+		<property name="volume">
+			<value>1.5</value>
+		</property>
 		<property name="name">
 			<value>Enemy_Pistol_Shot</value>
 		</property>
@@ -164,10 +167,19 @@
 	<object class="MixerBusEffectChain" id="{1d2b3fb0-2d33-4d03-9f13-a041f69b5d97}">
 		<relationship name="effects">
 			<destination>{4b6c1ef6-8f90-425e-8b89-138245fc50dd}</destination>
+			<destination>{e763dfd0-d46d-40e2-acd8-4191bd8c0130}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3fcb91ab-3aea-485f-b64d-1efd2c9b06b5}" />
 	<object class="MixerBusFader" id="{c0b851e6-8406-4bdd-bbc1-0d1dedf7ea5f}" />
 	<object class="SpatialiserEffect" id="{4c9465eb-1581-4251-847e-dd7a19121a9b}" />
 	<object class="MixerBusFader" id="{4b6c1ef6-8f90-425e-8b89-138245fc50dd}" />
+	<object class="ThreeEQEffect" id="{e763dfd0-d46d-40e2-acd8-4191bd8c0130}">
+		<property name="lowGain">
+			<value>3.5</value>
+		</property>
+		<property name="midGain">
+			<value>1</value>
+		</property>
+	</object>
 </objects>
