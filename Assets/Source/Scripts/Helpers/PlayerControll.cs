@@ -3,6 +3,7 @@ using NSpace;
 using System;
 using FMODUnity;
 using System.Collections.Generic;
+using static UnityEditor.ShaderData;
 
 public interface ISprinter
 {
@@ -125,23 +126,28 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     void PlayStepsound(float speed)
     {
         if(_soundController == null) return;
-        if (speed>0 && Time.time - lastStep > 2 / (speed + 1))
+        if (speed>0.1f && Time.time - lastStep > 2 / (speed + 1))
         {
             lastStep = Time.time;
-            if (Physics.Raycast(transform.TransformPoint(controller.center), Vector3.down, out RaycastHit hit, controller.height / 2 + 0.2f))
+            List<SoundEventParameter> pars = new List<SoundEventParameter>();
+            if (Physics.Raycast(transform.TransformPoint(controller.center), Vector3.down, out RaycastHit hit, controller.height))
             {
                 Surface surf = hit.collider.GetComponentInParent<Surface>();
-                List<SoundEventParameter> pars = new List<SoundEventParameter>();
+                
                 if (surf != null)
                 {
+                    Debug.Log(surf);
                     SoundEventParameter par = new SoundEventParameter();
                     par.name = "surfacetype";
                     par.value = surf.surfaceType;
+                    pars.Add(par);
                 }
-                if(sprint) _soundController.PlaySound(_soundSprint, transform.position, pars.ToArray());
-                else if(crouch) _soundController.PlaySound(_soundCrouch, transform.position, pars.ToArray());
-                else _soundController.PlaySound(_soundWalk, transform.position, pars.ToArray());
+                
+               
             }
+            if (sprint) _soundController.PlaySound(_soundSprint, transform.position, pars.ToArray());
+            else if (crouch) _soundController.PlaySound(_soundCrouch, transform.position, pars.ToArray());
+            else _soundController.PlaySound(_soundWalk, transform.position, pars.ToArray());
         }
        
     }
