@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: _target
@@ -1960,7 +1960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: _target
@@ -7989,7 +7989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: _target
@@ -10514,7 +10514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: _target
@@ -12495,6 +12495,10 @@ PrefabInstance:
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: _setupNormal.visibleRange
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: damage
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: _target
