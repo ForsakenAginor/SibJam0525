@@ -205,6 +205,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.vievAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.vievAngle
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 2133533161}
@@ -219,6 +227,14 @@ PrefabInstance:
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.visibleRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.visibleRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
@@ -1943,6 +1959,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.vievAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.vievAngle
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 2133533167}
@@ -1957,6 +1981,14 @@ PrefabInstance:
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.visibleRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.visibleRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
@@ -7972,6 +8004,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.vievAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.vievAngle
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 2133533165}
@@ -7986,6 +8026,14 @@ PrefabInstance:
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.visibleRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.visibleRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
@@ -10497,6 +10545,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.vievAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.vievAngle
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 2133533163}
@@ -10511,6 +10567,14 @@ PrefabInstance:
     - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: waypoints.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupAlarm.visibleRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995868921963334257, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
+      propertyPath: _setupNormal.visibleRange
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8752302388490812349, guid: 1376adab5cbe6924fab8896215a7e58f, type: 3}
       propertyPath: damage
