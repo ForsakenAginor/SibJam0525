@@ -5,7 +5,10 @@
 			<value>3</value>
 		</property>
 		<property name="quality">
-			<value>61</value>
+			<value>55</value>
+		</property>
+		<property name="loadingMode">
+			<value>1</value>
 		</property>
 		<relationship name="platform">
 			<destination>{86a7ea42-50c7-4859-b4e9-82b38c4b9a16}</destination>

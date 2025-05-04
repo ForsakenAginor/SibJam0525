@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.03.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{19310600-4323-43a4-9739-381cb6a5fe4c}">
 		<property name="name">
 			<value>Amb_Museum</value>
@@ -64,7 +64,11 @@
 			<destination>{2ee3227b-1f0e-4d3e-b305-6fa2697c14f1}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{3cb4001d-f4dc-4a04-abb6-18bd3619ff2f}" />
+	<object class="EventAutomatableProperties" id="{3cb4001d-f4dc-4a04-abb6-18bd3619ff2f}">
+		<property name="maxVoices">
+			<value>3</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{cc916932-64db-463a-886e-5e3c40a27b96}" />
 	<object class="MarkerTrack" id="{2cac6e4b-8c05-4f7f-9bf6-f0c7cbe35ba2}" />
 	<object class="GroupTrack" id="{ba0441a2-e12f-4db6-a131-aeed14b60ce0}">
