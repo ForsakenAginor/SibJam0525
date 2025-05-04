@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.03.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{934c353d-e410-4d69-9047-726b2a6f0a77}">
 		<property name="name">
 			<value>UI_Enter</value>
@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{7fb2795e-d6ae-43ef-87c5-1658a552bc55}">
+		<property name="volume">
+			<value>1.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{38aff8e9-2d3e-4964-b694-28f830fe54b1}</destination>
 		</relationship>
