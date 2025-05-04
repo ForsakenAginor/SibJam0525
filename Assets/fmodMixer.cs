@@ -9,10 +9,11 @@ public class fmodMixer : MonoBehaviour
 {
 
     [SerializeField] Slider masterVolume;
-    [SerializeField] Slider sfxSlider;
-    [SerializeField] string musicgrpname;
+    [SerializeField] Slider sfxSlider;    
     [SerializeField] Slider musicSlider;
-    string sfxgrpname = "bus:/SFX";
+
+    string musicgrpname = "bus:/Master_Amb";
+    string sfxgrpname = "bus:/Master_SFX";
     string masterBusString = "bus:/";
 
     FMOD.Studio.Bus masterBus;
@@ -22,7 +23,7 @@ public class fmodMixer : MonoBehaviour
     {
         masterBus = RuntimeManager.GetBus(masterBusString);
         sfxgrp = RuntimeManager.GetBus(sfxgrpname);
-        muzicgrp = RuntimeManager.GetBus(masterBusString + musicgrpname);
+        muzicgrp = RuntimeManager.GetBus(musicgrpname);
 
         masterBus.getVolume(out float master);
         masterVolume.SetValueWithoutNotify(master);

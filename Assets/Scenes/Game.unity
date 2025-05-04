@@ -817,6 +817,7 @@ MonoBehaviour:
       Data3: 473446807
       Data4: 1291756982
     Path: event:/Ambients/Amb_Museum
+  _player: {fileID: 1368389085}
   _exitButtons:
   - {fileID: 1204042328}
   - {fileID: 1557480251}

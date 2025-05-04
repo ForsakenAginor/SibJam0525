@@ -1,6 +1,5 @@
 using Assets.Scripts.General;
 using FMODUnity;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +8,7 @@ public class GameRoot : MonoBehaviour
 {
     [Header("Sound")]
     [SerializeField] private EventReference _sound;
+    [SerializeField] private Transform _player;
 
     [Header("UI")]
     [SerializeField] private Button[] _exitButtons;
@@ -56,7 +56,7 @@ public class GameRoot : MonoBehaviour
         foreach (var item in _loot)
             item.Init(_overlay);
 
-        AudioManager.Instance.PlayOneShot(_sound, transform.position);
+        AudioManager.Instance.PlayOneShot(_sound, _player.position);
         Subscribe();
         Time.timeScale = 1f;
         SceneChangerSingleton.Instance.FadeOut();
