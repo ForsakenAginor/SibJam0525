@@ -7,18 +7,21 @@ public class Pickapable : InteractableBase
 {
 
     [SerializeField] private int _value;
+    [SerializeField] private float _randomBrackets = 0.3f;
     private PickapableOverlay _pickapableOverlay;
+    private int _result;
 
     public event Action<Pickapable> Pickuped;
 
-    public int Value => _value;
+    public int Value => _result;
 
     public void Init(PickapableOverlay overlay)
     {
         SetOverlay(overlay);
         _pickapableOverlay = overlay;
-
-
+        
+        var multiplier = UnityEngine.Random.Range(1 - _randomBrackets, 1 + _randomBrackets);
+        _result = (int)(_value * multiplier);
     }
 
     public override void Interact(IInteractor _, bool pressed)
