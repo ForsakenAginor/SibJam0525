@@ -4904,6 +4904,13 @@ MonoBehaviour:
       Data3: -1431982706
       Data4: -948337625
     Path: event:/UI/UI_Switch
+  _switch:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &691865892 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6739700586907640720, guid: 721faf52641d3c34cba62e13e765cb9c, type: 3}
@@ -7338,6 +7345,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sound:
     Guid:
+      Data1: -1823722179
+      Data2: 1298785296
+      Data3: 1802651536
+      Data4: 1997172522
+    Path: event:/UI/UI_Enter
+  _switch:
+    Guid:
       Data1: -759327363
       Data2: 1267288552
       Data3: -1431982706
@@ -7922,11 +7936,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1823722179
+      Data2: 1298785296
+      Data3: 1802651536
+      Data4: 1997172522
+    Path: event:/UI/UI_Enter
+  _switch:
+    Guid:
+      Data1: -759327363
+      Data2: 1267288552
+      Data3: -1431982706
+      Data4: -948337625
+    Path: event:/UI/UI_Switch
 --- !u!114 &1228948090 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3447235967485830936, guid: 2da353a9bfa96c047b70f6e46179e123, type: 3}
@@ -7951,6 +7972,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _switch:
     Guid:
       Data1: 0
       Data2: 0
@@ -11915,6 +11943,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound:
+    Guid:
+      Data1: -1823722179
+      Data2: 1298785296
+      Data3: 1802651536
+      Data4: 1997172522
+    Path: event:/UI/UI_Enter
+  _switch:
     Guid:
       Data1: -759327363
       Data2: 1267288552
