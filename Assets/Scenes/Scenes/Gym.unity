@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d841bf60ae1d34640980ba96fd90d366, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1238,7 +1238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 258fb0389124d3e4f989e8c87e4874ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9161
+      value: 4.225
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 258fb0389124d3e4f989e8c87e4874ae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1745,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb0715a6814389c4dafa831d9e0ed40b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9115
+      value: 4.2204
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb0715a6814389c4dafa831d9e0ed40b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2436,7 +2436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f25cb21dc1fec334f83322f2366ae4de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9147
+      value: 4.2236
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f25cb21dc1fec334f83322f2366ae4de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3359,7 +3359,7 @@ MonoBehaviour:
   movableMask:
     serializedVersion: 2
     m_Bits: 8192
-  moveDistance: 2
+  moveDistance: 0.5
   moveSpeed: 2
   maxSelectedObjects: 3
   gameObject1: {fileID: 1568663731}
@@ -5902,6 +5902,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4158966405351829666, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 25655
+      objectReference: {fileID: 0}
     - target: {fileID: 6236795304052765787, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
       propertyPath: speed
       value: 0.5
@@ -6346,7 +6350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 275b41e9262b66d4b86b2181d94cb33e, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
