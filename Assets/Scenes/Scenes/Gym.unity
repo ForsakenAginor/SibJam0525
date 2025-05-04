@@ -13660,9 +13660,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 21670740974877988, guid: ef92ce177a720574f9c0744607daf8db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 58157201346983610, guid: ef92ce177a720574f9c0744607daf8db, type: 3}
       propertyPath: m_Name
       value: MiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 266642372494760634, guid: ef92ce177a720574f9c0744607daf8db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.156
+      objectReference: {fileID: 0}
+    - target: {fileID: 426922755633068565, guid: ef92ce177a720574f9c0744607daf8db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.156
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012821059206807628, guid: ef92ce177a720574f9c0744607daf8db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.156
       objectReference: {fileID: 0}
     - target: {fileID: 8281511121730702197, guid: ef92ce177a720574f9c0744607daf8db, type: 3}
       propertyPath: m_LocalPosition.x
