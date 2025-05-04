@@ -18,12 +18,15 @@ public class LockBehavior : MonoBehaviour
     [SerializeField] private GameObject Key1;
     [SerializeField] private GameObject Key2;
     [SerializeField] private GameObject Key3;
-
+    private int currentHighlightedIndex = 0;
     [SerializeField] private GameObject Locker;
     [SerializeField] private GameObject Lock;
     [SerializeField] private GameObject leftGate;
     [SerializeField] private GameObject rightGate;
-
+    private Vector3 key1OriginalPosition;
+    private Vector3 key2OriginalPosition;
+    private Vector3 key3OriginalPosition;
+    [SerializeField]  private float activationDistance;
     private float rotationAngle = 90f;
     public float rotationNewSpeed = 2f;
     private bool isOpening;
@@ -37,7 +40,9 @@ public class LockBehavior : MonoBehaviour
 
     private void Start()
     {
-
+        key1OriginalPosition = Key1.transform.position;
+        key2OriginalPosition = Key2.transform.position;
+        key3OriginalPosition = Key3.transform.position;
         mainCamera = Camera.main;
         gameObjects = new GameObject[] { Key1, Key2, Key3 };
         originalPositions = new Vector3[gameObjects.Length];
@@ -53,6 +58,7 @@ public class LockBehavior : MonoBehaviour
     {
         BeginGame();
         SelectObject();
+        MoveHighlight();
         EndGame();
 
     }
@@ -83,32 +89,7 @@ public class LockBehavior : MonoBehaviour
         return objects;
     }
 
-    private void SelectObject()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 100, movableMask))
-        {
-            GameObject selectedObject = hit.collider.gameObject;
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (!selectedObjects.Contains(selectedObject))
-                {
-                    if (selectedObjects.Count <= maxSelectedObjects)
-                    {
-                        selectedObjects.Add(selectedObject);
-                        MoveObjectUp(selectedObject);
-                    }
-                    if (selectedObjects.Count == maxSelectedObjects)
-                    {
-                        CheckSequences();
-                    }
-                }
-
-            }
-        }
-    }
+ 
 
     private void MoveObjectUp(GameObject obj)
     {
@@ -159,34 +140,20 @@ public class LockBehavior : MonoBehaviour
         }
     }
 
-    private void ResetSelectedObjects()
-    {
-        foreach (GameObject obj in selectedObjects)
-        {
 
-            int index = System.Array.IndexOf(gameObjects, obj);
-            if (index >= 0 && index < originalPositions.Length)
-            {
-                obj.transform.position = originalPositions[index];
-            }
-        }
-        selectedObjects.Clear();
 
-    }
     private void BeginGame()
     {
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 100, movableMask2))
+        if (Vector3.Distance(transform.position, Lock.transform.position) <= activationDistance)
         {
-            GameObject selectedObject = hit.collider.gameObject;
-            if (Input.GetMouseButtonDown(0))
+            // Проверяем нажатие клавиши X
+            if (Input.GetKeyDown(KeyCode.X))
             {
                 Key1.SetActive(true);
                 Key2.SetActive(true);
                 Key3.SetActive(true);
+
             }
         }
     }
@@ -248,4 +215,91 @@ public class LockBehavior : MonoBehaviour
 
         isPuzzeleSolved = true;
     }
+    private void MoveHighlight()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            currentHighlightedIndex = (currentHighlightedIndex + 1) % gameObjects.Length; // Перемещение вправо
+            HighlightCurrentObject();
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            currentHighlightedIndex = (currentHighlightedIndex - 1 + gameObjects.Length) % gameObjects.Length; // Перемещение влево
+            HighlightCurrentObject();
+        }
+    }
+    
+
+    private void HighlightCurrentObject()
+    {
+        // Сбросить подсветку всех объектов
+        foreach (GameObject obj in gameObjects)
+        {
+            ResetHighlight(obj);
+        }
+
+        // Подсветить текущий объект
+        Highlight(gameObjects[currentHighlightedIndex]);
+    }
+
+    private void Highlight(GameObject obj)
+    {
+        // Пример подсветки: изменяем цвет объекта
+        Renderer renderer = obj.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.material.color = Color.blue; // Измените цвет на желаемый
+        }
+    }
+
+    private void ResetHighlight(GameObject obj)
+    {
+        // Сброс цвета объекта
+        Renderer renderer = obj.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.material.color = Color.white; // Вернуть к исходному цвету
+        }
+    }
+
+    private void SelectObject()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GameObject selectedObject = gameObjects[currentHighlightedIndex];
+            if (!selectedObjects.Contains(selectedObject))
+            {
+                if (selectedObjects.Count < maxSelectedObjects)
+                {
+                    selectedObjects.Add(selectedObject);
+                    MoveObjectUp(selectedObject);
+                }
+                if (selectedObjects.Count == maxSelectedObjects)
+                {
+                    CheckSequences();
+                }
+            }
+        }
+       
+    }
+   
+
+    private void ResetSelectedObjects()
+    {
+        selectedObjects.Clear();
+        foreach (GameObject obj in gameObjects)
+        {
+            ResetHighlight(obj); // Сбросить подсветку всех объектов
+        }
+        Key1.transform.position = key1OriginalPosition;
+        Key2.transform.position = key2OriginalPosition;
+        Key3.transform.position = key3OriginalPosition;
+        
+
+    }
+   
+
+    
 }
+
+
