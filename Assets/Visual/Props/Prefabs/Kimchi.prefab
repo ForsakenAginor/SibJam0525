@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4286234082424127746}
   - component: {fileID: 7203723226511827826}
   - component: {fileID: 7886035009686718386}
-  m_Layer: 0
+  - component: {fileID: 8884779334205367409}
+  m_Layer: 10
   m_Name: Kimchi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,3 +107,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3260059218312796465, guid: 3c3fe03a475dd8e4880523e9dca73fd2, type: 3}
+--- !u!114 &8884779334205367409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302035252632854043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce1a0ef8a8c2e94fbb99c04ef6e18e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _overlay: {fileID: 0}
+  _price: 2000
+  _heal: 50

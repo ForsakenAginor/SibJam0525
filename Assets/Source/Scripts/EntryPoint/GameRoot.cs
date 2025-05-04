@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class GameRoot : MonoBehaviour
 {
+    [Header("Kimchi")]
+    [SerializeField] private Kimchi[] _kimchis;
+    [SerializeField] private KimchiOverlay _kimchiOverlay;
+
     [Header("Sound")]
     [SerializeField] private EventReference _sound;
     [SerializeField] private Transform _player;
@@ -55,6 +59,9 @@ public class GameRoot : MonoBehaviour
 
         foreach (var item in _loot)
             item.Init(_overlay);
+
+        foreach (var item in _kimchis)
+            item.Init(_kimchiOverlay, _playerHealth, _money);
 
         AudioManager.Instance.PlayOneShot(_sound, _player.position);
         Subscribe();
