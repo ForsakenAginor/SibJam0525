@@ -91,6 +91,7 @@ public class GameRoot : MonoBehaviour
 
     private void OnRestartButtonClick()
     {
+        AudioManager.Instance.StopAllSounds();
         SceneChangerSingleton.Instance.LoadScene(Scenes.Game.ToString(), true);
     }
 
@@ -122,6 +123,7 @@ public class GameRoot : MonoBehaviour
 
     private void OnPlayButtonClick()
     {
+        AudioManager.Instance.StopAllSounds();
         SceneChangerSingleton.Instance.LoadScene(Scenes.Menu.ToString());
     }
 }

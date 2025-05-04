@@ -89,6 +89,7 @@ public class Tutorial : MonoBehaviour
         if (_animation != null)
             _animation.Kill();
 
+        _slider.value = 0f;
         _message.Disable();
     }
 }

@@ -9,7 +9,7 @@ public class MouseLock : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.R))
             SwitchCursorState();
     }
 
