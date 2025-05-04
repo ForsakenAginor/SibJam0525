@@ -3,7 +3,6 @@ using NSpace;
 using System;
 using FMODUnity;
 using System.Collections.Generic;
-using static UnityEditor.ShaderData;
 
 public interface ISprinter
 {
