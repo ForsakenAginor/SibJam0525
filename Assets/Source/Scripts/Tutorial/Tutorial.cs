@@ -1,20 +1,20 @@
 using DG.Tweening;
+using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    private readonly Dictionary<AudioClip, float> _clips = new Dictionary<AudioClip, float>();
+    private readonly Dictionary<EventReference, float> _clips = new Dictionary<EventReference, float>();
 
-    [SerializeField] private AudioClip _intro;
-    [SerializeField] private AudioClip _2ndIntro;
-    [SerializeField] private AudioClip _threatment;
-    [SerializeField] private AudioClip _complete;
+    [SerializeField] private EventReference _intro;
+    [SerializeField] private EventReference _2ndIntro;
+    [SerializeField] private EventReference _threatment;
+    [SerializeField] private EventReference _complete;
 
     [SerializeField] private Slider _slider;
     [SerializeField] private SwitchableElement _message;
-    [SerializeField] private AudioSource _source;
 
     [SerializeField] private float _timeBeforeFirstMessage = 5f;
     [SerializeField] private float _timeBeforeSecondMessage = 15f;
@@ -26,10 +26,10 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        _clips.Add(_intro, _intro.length);
-        _clips.Add(_2ndIntro, _2ndIntro.length);
-        _clips.Add(_threatment, _threatment.length);
-        _clips.Add(_complete, _complete.length);
+        _clips.Add(_intro, 4.1f);
+        _clips.Add(_2ndIntro, 6.4f);
+        _clips.Add(_threatment, 7.1f);
+        _clips.Add(_complete, 3.6f);
     }
 
     private void Update()
@@ -56,8 +56,7 @@ public class Tutorial : MonoBehaviour
     {
         Normalize();
         _message.Enable();
-        _source.clip = _intro;
-        _source.Play();
+        AudioManager.Instance.PlayOneShot(_intro, transform.position);
         _animation = _slider.DOValue(1f, _clips[_intro]).SetEase(Ease.Linear).OnComplete(() => _message.Disable());
     }
 
@@ -65,8 +64,7 @@ public class Tutorial : MonoBehaviour
     {
         Normalize();
         _message.Enable();
-        _source.clip = _2ndIntro;
-        _source.Play();
+        AudioManager.Instance.PlayOneShot(_2ndIntro, transform.position);
         _animation = _slider.DOValue(1f, _clips[_2ndIntro]).SetEase(Ease.Linear).OnComplete(() => _message.Disable());
     }
 
@@ -74,8 +72,7 @@ public class Tutorial : MonoBehaviour
     {
         Normalize();
         _message.Enable();
-        _source.clip = _threatment;
-        _source.Play();
+        AudioManager.Instance.PlayOneShot(_threatment, transform.position);
         _animation = _slider.DOValue(1f, _clips[_threatment]).SetEase(Ease.Linear).OnComplete(() => _message.Disable());
     }
 
@@ -83,16 +80,12 @@ public class Tutorial : MonoBehaviour
     {
         Normalize();
         _message.Enable();
-        _source.clip = _complete;
-        _source.Play();
+        AudioManager.Instance.PlayOneShot(_complete, transform.position);
         _animation = _slider.DOValue(1f, _clips[_complete]).SetEase(Ease.Linear).OnComplete(() => _message.Disable());
     }
 
     private void Normalize()
     {
-        _slider.value = 0f;
-        _source.Stop();
-
         if (_animation != null)
             _animation.Kill();
 
