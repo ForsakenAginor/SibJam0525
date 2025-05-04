@@ -466,8 +466,15 @@ MonoBehaviour:
       Data3: -1097708920
       Data4: -625895913
     Path: event:/Player/Footsteps/Footstep_Crouch
+  _playerHitSound:
+    Guid:
+      Data1: 136422757
+      Data2: 1195264215
+      Data3: -109946950
+      Data4: -612417092
+    Path: event:/Player/Player_HitBody
   moveSpeed: 3
-  lookSpeed: 90
+  lookSpeed: 15
   jumpHeight: 5
   viewLimits: {x: -80, y: 80}
   grav: -12

@@ -16,6 +16,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     [SerializeField] private EventReference _soundWalk;
     [SerializeField] private EventReference _soundSprint;
     [SerializeField] private EventReference _soundCrouch;
+    [SerializeField] private EventReference _playerHitSound;
     [SerializeField] float moveSpeed;
     [SerializeField] float lookSpeed;
     [SerializeField] float jumpHeight;
@@ -120,6 +121,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         viewAngle = 0;
         defaultHeight = controller.height;
         _soundController = GetComponent<PlayerSoundController>();
+       
         
     }
 
@@ -136,7 +138,6 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
                 
                 if (surf != null)
                 {
-                    Debug.Log(surf);
                     SoundEventParameter par = new SoundEventParameter();
                     par.name = "surfacetype";
                     par.value = surf.surfaceType;
@@ -150,6 +151,14 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
             else _soundController.PlaySound(_soundWalk, transform.position, pars.ToArray());
         }
        
+    }
+
+    public void RegisterHit()
+    {
+        if (_soundController != null)
+        {
+            _soundController.PlaySound(_playerHitSound, transform.position, null);
+        }
     }
 
     

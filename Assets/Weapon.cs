@@ -27,6 +27,9 @@ public class Weapon : MonoBehaviour, IWeapon
         {
             dmg.TakeDamage(damage);
         }
+
+        PlayerControll playerHit = target.GetComponentInParent<PlayerControll>();
+        if (playerHit) playerHit.RegisterHit();
     }
     
     // Start is called before the first frame update
