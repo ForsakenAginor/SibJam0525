@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using NSpace;
 using System;
+using static UnityEngine.Rendering.DebugUI;
 
 [RequireComponent(typeof(CollectAnimation))]
 public class Pickapable : InteractableBase

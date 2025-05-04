@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class GameRoot : MonoBehaviour
 {
+    [Header("Kimchi")]
+    [SerializeField] private Kimchi[] _kimchis;
+    [SerializeField] private KimchiOverlay _kimchiOverlay;
+
     [Header("Sound")]
     [SerializeField] private EventReference _sound;
     [SerializeField] private Transform _player;
@@ -56,6 +60,9 @@ public class GameRoot : MonoBehaviour
         foreach (var item in _loot)
             item.Init(_overlay);
 
+        foreach (var item in _kimchis)
+            item.Init(_kimchiOverlay, _playerHealth, _money);
+
         AudioManager.Instance.PlayOneShot(_sound, _player.position);
         Subscribe();
         Time.timeScale = 1f;
@@ -91,6 +98,7 @@ public class GameRoot : MonoBehaviour
 
     private void OnRestartButtonClick()
     {
+        AudioManager.Instance.StopAllSounds();
         SceneChangerSingleton.Instance.LoadScene(Scenes.Game.ToString(), true);
     }
 
@@ -122,6 +130,7 @@ public class GameRoot : MonoBehaviour
 
     private void OnPlayButtonClick()
     {
+        AudioManager.Instance.StopAllSounds();
         SceneChangerSingleton.Instance.LoadScene(Scenes.Menu.ToString());
     }
 }

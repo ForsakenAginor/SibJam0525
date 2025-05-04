@@ -16,8 +16,8 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private SwitchableElement _message;
 
-    [SerializeField] private float _timeBeforeFirstMessage = 5f;
-    [SerializeField] private float _timeBeforeSecondMessage = 15f;
+    [SerializeField] private float _timeBeforeFirstMessage = 2f;
+    [SerializeField] private float _timeBeforeSecondMessage = 10f;
     private float _timeSinceStart = 0;
     private bool _isFirstPlayed = false;
     private bool _isSecondPlayed = false;
@@ -27,8 +27,8 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         _clips.Add(_intro, 4.1f);
-        _clips.Add(_2ndIntro, 6.4f);
-        _clips.Add(_threatment, 7.1f);
+        _clips.Add(_2ndIntro, 7.1f);
+        _clips.Add(_threatment, 6.4f);
         _clips.Add(_complete, 3.6f);
     }
 
@@ -89,6 +89,7 @@ public class Tutorial : MonoBehaviour
         if (_animation != null)
             _animation.Kill();
 
+        _slider.value = 0f;
         _message.Disable();
     }
 }
