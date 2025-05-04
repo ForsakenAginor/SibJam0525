@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.03.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{c5fa3e99-9e5c-48f0-9ba8-138630e0aa21}">
 		<property name="name">
 			<value>TakeItems</value>
@@ -110,6 +110,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{4c81b478-7573-48e7-b5b0-aa1b94fa6fe3}">
+		<property name="volume">
+			<value>2</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{d324594d-4cab-40c7-9e8d-77aa3dd39724}</destination>
 		</relationship>
