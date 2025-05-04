@@ -86,12 +86,15 @@
 	</object>
 	<object class="Timeline" id="{e3d42c2e-e8c9-435d-9956-ab25411c04e7}">
 		<relationship name="modules">
+			<destination>{9316d514-b020-4f76-9906-fa61e62f43bb}</destination>
 			<destination>{84e2fb64-34c1-4826-9cf1-708370c451ba}</destination>
 			<destination>{cb7baf8b-d100-405a-bea3-75a9a03269b8}</destination>
-			<destination>{9316d514-b020-4f76-9906-fa61e62f43bb}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{348f4875-156c-4ef5-9559-5c11cf9c5eb9}">
+		<property name="volume">
+			<value>3</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{3ebcdf48-4fc2-4ae2-aaa6-b2beaef0c1fa}</destination>
 		</relationship>
@@ -183,8 +186,8 @@
 			<value>0.5</value>
 		</property>
 		<relationship name="modulators">
-			<destination>{3613a5a6-7b55-41ed-8a68-349404c5c6a0}</destination>
 			<destination>{22241ed5-fc12-4a76-b47b-d68cc03c59b1}</destination>
+			<destination>{3613a5a6-7b55-41ed-8a68-349404c5c6a0}</destination>
 		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{67e02ca8-8bb3-46b3-b374-2dbd0ba425ee}</destination>
@@ -328,20 +331,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7403272d-32a6-4edd-aa8d-9b29d1cbc8f9}" />
-	<object class="RandomizerModulator" id="{3613a5a6-7b55-41ed-8a68-349404c5c6a0}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>pitch</value>
-		</property>
-		<property name="amount">
-			<value>8</value>
-		</property>
-	</object>
 	<object class="RandomizerModulator" id="{22241ed5-fc12-4a76-b47b-d68cc03c59b1}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
 		</property>
 		<property name="amount">
 			<value>1</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{3613a5a6-7b55-41ed-8a68-349404c5c6a0}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>8</value>
 		</property>
 	</object>
 	<object class="ParameterCondition" id="{67e02ca8-8bb3-46b3-b374-2dbd0ba425ee}">
