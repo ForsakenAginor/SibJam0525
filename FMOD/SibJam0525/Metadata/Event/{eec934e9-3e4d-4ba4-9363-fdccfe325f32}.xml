@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.03.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{eec934e9-3e4d-4ba4-9363-fdccfe325f32}">
 		<property name="name">
 			<value>Player_Heartbeat</value>
@@ -65,7 +65,7 @@
 		<relationship name="automationTracks">
 			<destination>{239ff02f-e70e-43dd-b368-559703c4fb03}</destination>
 			<destination>{89549f30-5218-4429-b9cb-400e0c9b8afb}</destination>
-			<destination>{b18a3e95-6ee0-4895-80bf-20e782198dfe}</destination>
+			<destination>{6b01d57d-d26c-42e8-95eb-9baffa4ba1e2}</destination>
 		</relationship>
 		<relationship name="modules">
 			<destination>{d2bf05c3-2861-40a4-b9b3-4e3042b55e75}</destination>
@@ -114,7 +114,7 @@
 			<destination>{c97e1d1d-e191-4a7d-b19e-f59cffc9d9d8}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationTrack" id="{b18a3e95-6ee0-4895-80bf-20e782198dfe}">
+	<object class="AutomationTrack" id="{6b01d57d-d26c-42e8-95eb-9baffa4ba1e2}">
 		<relationship name="automator">
 			<destination>{14ae3ee6-cee5-43dc-b1cc-65b119653dd8}</destination>
 		</relationship>
@@ -270,7 +270,7 @@
 	</object>
 	<object class="AutomationPoint" id="{e32dd01f-04dd-49ab-bcf0-ecd3bf84f978}">
 		<property name="position">
-			<value>41.926802653788982</value>
+			<value>35</value>
 		</property>
 		<property name="value">
 			<value>-80</value>
@@ -278,13 +278,13 @@
 	</object>
 	<object class="AutomationPoint" id="{ecbc6154-77f8-4066-9dde-02db4f3d6064}">
 		<property name="position">
-			<value>25</value>
+			<value>15</value>
 		</property>
 		<property name="value">
-			<value>-4.5</value>
+			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.414359123</value>
+			<value>-0.467354417</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{76b881d5-0f84-448a-ace2-fe0960f0c2f7}">
@@ -314,15 +314,15 @@
 	</object>
 	<object class="AutomationPoint" id="{53f0b8d5-dbca-4ffd-b7b0-c6017792917d}">
 		<property name="position">
-			<value>54</value>
+			<value>47</value>
 		</property>
 		<property name="value">
-			<value>75</value>
+			<value>20</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{74a1bd37-1768-4a5f-a172-7ba612bda4c4}">
 		<property name="position">
-			<value>25</value>
+			<value>15</value>
 		</property>
 		<property name="value">
 			<value>22000</value>

@@ -5,7 +5,7 @@
 			<value>BabaYagaLine2</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{874fed8e-7dcc-43d6-96fc-681b9129c9be}</destination>
@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{316b4372-31fd-49fb-877d-8dc922e740c0}" />
 	<object class="GroupTrack" id="{2c2f3c15-5f1d-41d4-a6b6-98aedbfdea0e}">
 		<relationship name="modules">
-			<destination>{2c88ab56-1ecd-473e-a018-ffad078d4c1a}</destination>
+			<destination>{e9726538-52e5-4e66-9675-87d5d00bf984}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{fc7a738b-31ae-4065-9874-9afb4fbf4eed}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{0158887a-cb8e-48dd-8617-f3adea1bd258}">
 		<relationship name="modules">
-			<destination>{2c88ab56-1ecd-473e-a018-ffad078d4c1a}</destination>
+			<destination>{e9726538-52e5-4e66-9675-87d5d00bf984}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{9673c57c-803e-4c08-a3bc-ce710ed19404}">
@@ -88,12 +88,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4e2ed385-462e-4aa3-b3fa-b9996cc74e7a}" />
-	<object class="SingleSound" id="{2c88ab56-1ecd-473e-a018-ffad078d4c1a}">
+	<object class="SingleSound" id="{e9726538-52e5-4e66-9675-87d5d00bf984}">
 		<property name="length">
-			<value>6.4261224489795916</value>
+			<value>6.3970748299319729</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{386a4542-7e87-4513-9c5f-0bd3978da93d}</destination>
+			<destination>{c0d44db1-2c55-4b77-b3aa-3fa16d274683}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{fc7a738b-31ae-4065-9874-9afb4fbf4eed}">
