@@ -2,6 +2,7 @@ using UnityEngine;
 using NSpace;
 using System;
 using FMODUnity;
+using System.Collections.Generic;
 
 public interface ISprinter
 {
@@ -39,6 +40,8 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     float defaultHeight;
     private SprintController _sprintController;
     private bool _isCrouchInput;
+    private PlayerSoundController _soundController;
+    float lastStep;
 
     public bool IsSprinting => sprint;
 
@@ -81,6 +84,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
             {
                 crouch = false;
             }
+            PlayStepsound(move.magnitude);
         }
         controller.Move((move + Vector3.up * moveDemand.y) * Time.deltaTime);
         controller.transform.rotation *= Quaternion.AngleAxis(lookDemand.x * lookSpeed * Time.deltaTime, Vector3.up);
@@ -114,5 +118,33 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         //Cursor.lockState = CursorLockMode.Locked;
         viewAngle = 0;
         defaultHeight = controller.height;
+        _soundController = GetComponent<PlayerSoundController>();
+        
     }
+
+    void PlayStepsound(float speed)
+    {
+        if(_soundController == null) return;
+        if (speed>0 && Time.time - lastStep > 2 / (speed + 1))
+        {
+            lastStep = Time.time;
+            if (Physics.Raycast(transform.TransformPoint(controller.center), Vector3.down, out RaycastHit hit, controller.height / 2 + 0.2f))
+            {
+                Surface surf = hit.collider.GetComponentInParent<Surface>();
+                List<SoundEventParameter> pars = new List<SoundEventParameter>();
+                if (surf != null)
+                {
+                    SoundEventParameter par = new SoundEventParameter();
+                    par.name = "surfacetype";
+                    par.value = surf.surfaceType;
+                }
+                if(sprint) _soundController.PlaySound(_soundSprint, transform.position, pars.ToArray());
+                else if(crouch) _soundController.PlaySound(_soundCrouch, transform.position, pars.ToArray());
+                else _soundController.PlaySound(_soundWalk, transform.position, pars.ToArray());
+            }
+        }
+       
+    }
+
+    
 }
