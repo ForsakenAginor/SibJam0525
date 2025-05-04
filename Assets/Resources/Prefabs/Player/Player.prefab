@@ -46,7 +46,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a66e30c03a70f40a17368cb4a049d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: {x: 0.01, y: 0.002}
+  scale: {x: 0.005, y: 0.001}
   speed: 2
 --- !u!114 &8263077282004317362
 MonoBehaviour:
@@ -240,7 +240,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 20
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -381,6 +381,11 @@ GameObject:
   - component: {fileID: 7410234098190510352}
   - component: {fileID: 8121773943372261060}
   - component: {fileID: 8250342125231057202}
+  - component: {fileID: 8038059734909830195}
+  - component: {fileID: 39509585359013835}
+  - component: {fileID: 4066165951357730049}
+  - component: {fileID: 5401794524829049674}
+  - component: {fileID: 5569856110908848386}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -444,29 +449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8873ea6ec30fe3f40978dc571f38419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundWalk:
-    Guid:
-      Data1: 863835552
-      Data2: 1340359827
-      Data3: 1245870013
-      Data4: 77558742
-    Path: event:/Player/Footsteps/Footstep_Walk
-  _soundSprint:
-    Guid:
-      Data1: -1893518612
-      Data2: 1228872333
-      Data3: -730169196
-      Data4: -1600763506
-    Path: event:/Player/Footsteps/Footstep_Run
-  _soundCrouch:
-    Guid:
-      Data1: -1794249947
-      Data2: 1146616949
-      Data3: -1097708920
-      Data4: -625895913
-    Path: event:/Player/Footsteps/Footstep_Crouch
   moveSpeed: 3
-  lookSpeed: 90
+  lookSpeed: 15
   jumpHeight: 5
   viewLimits: {x: -80, y: 80}
   grav: -12
@@ -474,12 +458,81 @@ MonoBehaviour:
   sprintSpeedMult: 3
   crouchMult: 0.6
   viewer: {fileID: 5952612423164290911}
+  ceilingMinHeight: 0.3
+  staminaMin: 30
+  soundController: {fileID: 8038059734909830195}
   onMove:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6236795304052765787}
         m_TargetAssemblyTypeName: CameraShaker, Assembly-CSharp
         m_MethodName: Shake
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  surfaceTypeParameterName: surfacetype
+  walkSound:
+    Guid:
+      Data1: 863835552
+      Data2: 1340359827
+      Data3: 1245870013
+      Data4: 77558742
+    Path: event:/Player/Footsteps/Footstep_Walk
+  runSound:
+    Guid:
+      Data1: -1893518612
+      Data2: 1228872333
+      Data3: -730169196
+      Data4: -1600763506
+    Path: event:/Player/Footsteps/Footstep_Run
+  crouchSound:
+    Guid:
+      Data1: -1794249947
+      Data2: 1146616949
+      Data3: -1097708920
+      Data4: -625895913
+    Path: event:/Player/Footsteps/Footstep_Crouch
+  jumpSound:
+    Guid:
+      Data1: -858666405
+      Data2: 1262757296
+      Data3: 486821251
+      Data4: -263259927
+    Path: event:/Player/Jumps/Jump_Start
+  landSound:
+    Guid:
+      Data1: -265977697
+      Data2: 1162576882
+      Data3: -2011476850
+      Data4: 337851510
+    Path: event:/Player/Jumps/Jump_Land
+  onSprint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5401794524829049674}
+        m_TargetAssemblyTypeName: FMODParameterSetter, Assembly-CSharp
+        m_MethodName: SetParameter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHeartBeat:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5401794524829049674}
+        m_TargetAssemblyTypeName: FMODParameterSetter, Assembly-CSharp
+        m_MethodName: SetParameter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -514,6 +567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270eedcf866dbdc4eb2ef29f4e3a2e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8250342125231057202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,6 +587,115 @@ MonoBehaviour:
   - {fileID: 5131286034785150944}
   - {fileID: 351646690616998490}
   <side>k__BackingField: 1
+--- !u!114 &8038059734909830195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363518183824496243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3866cca03882af469d17b2e5d46e895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storedEvents: []
+  storedEventparameters: []
+  onObjectEnabled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &39509585359013835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363518183824496243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2112218848
+      Data2: 1230055795
+      Data3: 1246423473
+      Data4: -220121459
+    Path: event:/Player/Player_Breath
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Stamina
+    Value: 100
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &4066165951357730049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363518183824496243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -288803607
+      Data2: 1269055053
+      Data3: -855809133
+      Data4: 845099774
+    Path: event:/Player/Player_Heartbeat
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Health
+    Value: 100
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5401794524829049674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363518183824496243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cba977788766c4ba2f130d194663c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultName: Stamina
+  emitter: {fileID: 39509585359013835}
+--- !u!114 &5569856110908848386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363518183824496243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cba977788766c4ba2f130d194663c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultName: Health
+  emitter: {fileID: 4066165951357730049}
 --- !u!1 &8958014894666172344
 GameObject:
   m_ObjectHideFlags: 0
