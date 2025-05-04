@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using NSpace;
+using FMODUnity;
 
 public class Kimchi : InteractableBase
 {
     [SerializeField] private int _price;
     [SerializeField] private int _heal;
+    [SerializeField] StudioEventEmitter sound;
 
     private KimchiOverlay _pickapableOverlay;
     private Resource _health;
@@ -26,6 +28,7 @@ public class Kimchi : InteractableBase
             {
                 _money.Spent(_price);
                 _health.Add(_heal);
+                if(sound != null) { sound.Play(); }
             }
         }
     }
