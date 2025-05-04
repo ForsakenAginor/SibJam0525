@@ -38,6 +38,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     bool sprint;
     float defaultHeight;
     private SprintController _sprintController;
+    private bool _isCrouchInput;
 
     public bool IsSprinting => sprint;
 
@@ -51,8 +52,8 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         input.CommonControlls.MouseMove.canceled += (context) => { lookDemand = context.ReadValue<Vector2>(); };
         input.CharacterControlls.Jump.started += (context) => { jump = true; };
         input.CharacterControlls.Jump.canceled += (context) => { jump = false; };
-        input.CharacterControlls.Crouch.started += (context) => { crouch = true; };
-        input.CharacterControlls.Crouch.canceled += (context) => { crouch = false; };
+        input.CharacterControlls.Crouch.started += (context) => { crouch = true; _isCrouchInput = true; };
+        input.CharacterControlls.Crouch.canceled += (context) => { crouch = false; _isCrouchInput = false; };
         input.CharacterControlls.Sprint.started += (context) => { sprint = true; };
         input.CharacterControlls.Sprint.canceled += (context) => { sprint = false; };
     }
@@ -73,11 +74,19 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
             * moveSpeed
             * (crouch ? crouchSpeedMult : 1)
             * (sprint && _sprintController.CanSprint ? sprintSpeedMult : 1), Time.deltaTime * 5);
+
+            bool canStandUp = !Physics.Raycast(viewer.transform.position, Vector3.up, defaultHeight * (1 - crouchMult));
+
+            if (_isCrouchInput == false && canStandUp)
+            {
+                crouch = false;
+            }
         }
         controller.Move((move + Vector3.up * moveDemand.y) * Time.deltaTime);
         controller.transform.rotation *= Quaternion.AngleAxis(lookDemand.x * lookSpeed * Time.deltaTime, Vector3.up);
         viewAngle = Mathf.Clamp(viewAngle - lookDemand.y * lookSpeed * Time.deltaTime, viewLimits.x, viewLimits.y); ;
         viewer.transform.localRotation = Quaternion.AngleAxis(viewAngle, Vector3.right);
+
         if (crouch)
         {
             controller.height = Mathf.Lerp(controller.height, defaultHeight * crouchMult, Time.deltaTime * 10);
