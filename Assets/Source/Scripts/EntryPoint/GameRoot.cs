@@ -1,5 +1,6 @@
 using Assets.Scripts.General;
 using FMODUnity;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -98,6 +99,7 @@ public class GameRoot : MonoBehaviour
         Time.timeScale = 0f;
         _buttonCanvas.Disable();
         _winScreen.Enable();
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void OnPlayerDying()
@@ -105,6 +107,7 @@ public class GameRoot : MonoBehaviour
         Time.timeScale = 0f;
         _buttonCanvas.Disable();
         _loseScreen.PlayAnimation();
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void InitPlayerResourceViews(Resource stamina)
