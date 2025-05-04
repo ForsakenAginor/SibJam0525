@@ -6662,7 +6662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1063050493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10839,7 +10839,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2174744722277706335, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
       propertyPath: lookSpeed
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2761265253027166366, guid: ab2ed3e11070688428cd3add23d85573, type: 3}
       propertyPath: far clip plane
