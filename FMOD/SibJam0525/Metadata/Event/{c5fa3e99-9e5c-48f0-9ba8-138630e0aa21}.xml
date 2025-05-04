@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{c5fa3e99-9e5c-48f0-9ba8-138630e0aa21}">
 		<property name="name">
 			<value>TakeItems</value>
@@ -98,8 +98,8 @@
 	</object>
 	<object class="Timeline" id="{a42261a0-fb00-449d-ae24-ff058701f2c3}">
 		<relationship name="modules">
-			<destination>{7dba620b-b35d-4337-9eae-359275b011b6}</destination>
 			<destination>{ad06c86d-ffb6-49f7-b10f-779410cf1d3c}</destination>
+			<destination>{7dba620b-b35d-4337-9eae-359275b011b6}</destination>
 			<destination>{92ce4e45-6ae2-48f5-8bf2-4dfe0abe0614}</destination>
 			<destination>{ccf0365c-8434-4584-8d8e-65cd9c44d7fe}</destination>
 		</relationship>

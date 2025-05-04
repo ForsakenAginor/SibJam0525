@@ -2,6 +2,8 @@ using UnityEngine;
 using NSpace;
 using System;
 using FMODUnity;
+using System.Collections.Generic;
+using static UnityEditor.ShaderData;
 
 public interface ISprinter
 {
@@ -14,6 +16,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     [SerializeField] private EventReference _soundWalk;
     [SerializeField] private EventReference _soundSprint;
     [SerializeField] private EventReference _soundCrouch;
+    [SerializeField] private EventReference _playerHitSound;
     [SerializeField] float moveSpeed;
     [SerializeField] float lookSpeed;
     [SerializeField] float jumpHeight;
@@ -39,6 +42,8 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
     float defaultHeight;
     private SprintController _sprintController;
     private bool _isCrouchInput;
+    private PlayerSoundController _soundController;
+    float lastStep;
 
     public bool IsSprinting => sprint;
 
@@ -81,6 +86,7 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
             {
                 crouch = false;
             }
+            PlayStepsound(move.magnitude);
         }
         controller.Move((move + Vector3.up * moveDemand.y) * Time.deltaTime);
         controller.transform.rotation *= Quaternion.AngleAxis(lookDemand.x * lookSpeed * Time.deltaTime, Vector3.up);
@@ -114,5 +120,46 @@ public class PlayerControll : MonoBehaviour, IEntity, ISprinter
         //Cursor.lockState = CursorLockMode.Locked;
         viewAngle = 0;
         defaultHeight = controller.height;
+        _soundController = GetComponent<PlayerSoundController>();
+       
+        
     }
+
+    void PlayStepsound(float speed)
+    {
+        if(_soundController == null) return;
+        if (speed>0.1f && Time.time - lastStep > 2 / (speed + 1))
+        {
+            lastStep = Time.time;
+            List<SoundEventParameter> pars = new List<SoundEventParameter>();
+            if (Physics.Raycast(transform.TransformPoint(controller.center), Vector3.down, out RaycastHit hit, controller.height))
+            {
+                Surface surf = hit.collider.GetComponentInParent<Surface>();
+                
+                if (surf != null)
+                {
+                    SoundEventParameter par = new SoundEventParameter();
+                    par.name = "surfacetype";
+                    par.value = surf.surfaceType;
+                    pars.Add(par);
+                }
+                
+               
+            }
+            if (sprint) _soundController.PlaySound(_soundSprint, transform.position, pars.ToArray());
+            else if (crouch) _soundController.PlaySound(_soundCrouch, transform.position, pars.ToArray());
+            else _soundController.PlaySound(_soundWalk, transform.position, pars.ToArray());
+        }
+       
+    }
+
+    public void RegisterHit()
+    {
+        if (_soundController != null)
+        {
+            _soundController.PlaySound(_playerHitSound, transform.position, null);
+        }
+    }
+
+    
 }

@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 7410234098190510352}
   - component: {fileID: 8121773943372261060}
   - component: {fileID: 8250342125231057202}
+  - component: {fileID: 2355345962853127496}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -465,8 +466,15 @@ MonoBehaviour:
       Data3: -1097708920
       Data4: -625895913
     Path: event:/Player/Footsteps/Footstep_Crouch
+  _playerHitSound:
+    Guid:
+      Data1: 136422757
+      Data2: 1195264215
+      Data3: -109946950
+      Data4: -612417092
+    Path: event:/Player/Player_HitBody
   moveSpeed: 3
-  lookSpeed: 90
+  lookSpeed: 15
   jumpHeight: 5
   viewLimits: {x: -80, y: 80}
   grav: -12
@@ -531,6 +539,23 @@ MonoBehaviour:
   - {fileID: 5131286034785150944}
   - {fileID: 351646690616998490}
   <side>k__BackingField: 1
+--- !u!114 &2355345962853127496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363518183824496243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e89860984bc4a568ea417c1b5ab1a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storedEvents: []
+  storedEventparameters: []
+  onObjectEnabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8958014894666172344
 GameObject:
   m_ObjectHideFlags: 0
